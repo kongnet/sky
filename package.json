@@ -1,0 +1,19 @@
+{
+  "name": "skyjt",
+  "version": "0.9.0",
+  "description": "skyjt",
+  "main": "index.js",
+  "dependencies": {
+    "commander": "^2.20.0",
+    "meeko": "^1.7.47"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "command": "./sky.js"
+  },
+  "author": "skykong",
+  "license": "ISC"
+}
