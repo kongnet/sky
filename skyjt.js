@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 let commander = require('commander')
 let $ = require('meeko')
+let Pack = require('package.json')
 commander
   .usage('[options] ')
-  .version(`${$.c.g('0.8.0')} Sky Framework`, '-v, --version')
+  .version(`[${$.c.g(Pack.version)}] Sky Framework`, '-v, --version')
   // .option('-a, --aaa-bbb', 'commander.aaaBbb')
 
   .command('init [path]')
@@ -16,5 +17,5 @@ commander
 commander.parse(process.argv)
 
 if (process.argv.length === 2) {
-  console.log(`Init Sky framework: ${$.c.y('sky init')}`)
+  console.log(`[${$.c.g(Pack.version)}] Sky framework: ${$.c.y('sky init')}`)
 }
