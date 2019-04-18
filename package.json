@@ -2,7 +2,7 @@
   "name": "skyjt",
   "version": "0.9.0",
   "description": "skyjt",
-  "main": "index.js",
+  "main": "skyjt.js",
   "dependencies": {
     "commander": "^2.20.0",
     "meeko": "^1.7.47"
@@ -12,7 +12,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "command": "./sky.js"
+    "skyjt": "./skyjt.js"
   },
   "author": "skykong",
   "license": "ISC"
