@@ -38,6 +38,7 @@ commander.command('swaggerscan [option]')
   .option('-c, --config <path>', 'defaults to ./swagger.json')
   .action(function (option, path) {
     console.log(option, path.config)
+    tools.swaggerscan.index.scan()
   })
 commander.parse(process.argv)
 
