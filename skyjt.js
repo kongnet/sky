@@ -11,12 +11,13 @@ commander
   // .option('-a, --aaa-bbb', 'commander.aaaBbb')
 commander.command('init')
   .alias('i')
-  .description('Init Sky framework')
+  .description('Init Sky Framework')
   .action(function (env, options) {
     console.log('do init')
   })
 commander.command('dbscan [option]')
-  .description('scan DB')
+  .alias('db')
+  .description($.c.g('scan Mysql JiaTui rules'))
   .option('-c, --config <path>', 'defaults to ./dbscan.json')
   .action(function (option, path) {
     // console.log(option, path.config)
@@ -27,13 +28,13 @@ commander.command('dbscan [option]')
     }
   })
 commander.command('commentscan [option]')
-  .description('scan Comment')
+  .description('scan Function Comment')
   .option('-c, --config <path>', 'defaults to ./commentscan.json')
   .action(function (option, path) {
     console.log(option, path.config)
   })
 commander.command('swaggerscan [option]')
-  .description('scan Swagger')
+  .description('scan Swagger file')
   .option('-c, --config <path>', 'defaults to ./swagger.json')
   .action(function (option, path) {
     console.log(option, path.config)
