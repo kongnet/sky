@@ -8,7 +8,7 @@ let tools = $.requireAll(path.join(__dirname, '.', 'lib'))
 commander
   .usage('[command] [options] <file ...>')
   .version(`[${$.c.g(Pack.version)}] Sky Framework`, '-v, --version')
-  // .option('-a, --aaa-bbb', 'commander.aaaBbb')
+// .option('-a, --aaa-bbb', 'commander.aaaBbb')
 commander.command('init')
   .alias('i')
   .description('Init Sky Framework')
@@ -38,9 +38,17 @@ commander.command('swaggerscan [option]')
   .description($.c.g('scan Swagger JiaTui rules'))
   .option('-c, --config <path>', 'defaults to ./config.js')
   .action(function (option, path) {
-    // console.log(option, path.config)
     if (path.config) {
-      tools.swaggerscan.index.scan(path.config)
+      try {
+        if (path.config.indexOf('http://') !== -1 || path.config.indexOf('https://') !== -1) {
+          tools.swaggerscan.index.scan(path.config)
+        } else {
+          $.err('Config url error！')
+        }
+      } catch (e) {
+        $.err(e ? 'Config format error！' : 'Config file missing!')
+        process.exit()
+      }
     } else {
       tools.swaggerscan.index.scan()
     }
