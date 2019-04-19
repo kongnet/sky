@@ -35,7 +35,7 @@ commander.command('commentscan [option]')
   })
 commander.command('swaggerscan [option]')
   .alias('swagger')
-  .description('scan Swagger file')
+  .description($.c.g('scan Swagger JiaTui rules'))
   .option('-c, --config <path>', 'defaults to ./swagger.json')
   .action(function (option, path) {
     // console.log(option, path.config)
