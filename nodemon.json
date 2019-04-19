@@ -14,19 +14,6 @@
     "mochawesome-report",
     "mochawesome-reports"
   ],
-  "watch": [
-    "config",
-    "controller",
-    "libraries",
-    "library",
-    "service",
-    "middleware",
-    "models",
-    "router",
-    "routers",
-    "sky/*",
-    "index.js",
-    "api"
-  ],
+  "watch": [],
   "verbose": false
 }
