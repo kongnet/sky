@@ -4,6 +4,7 @@ let $ = require('meeko')
 let Pack = require('./package.json')
 let path = require('path')
 let tools = $.requireAll(path.join(__dirname, '.', 'lib'))
+let reg = /(http|https):\/\/([\w.]+\/?)\S*/
 
 commander
   .usage('[command] [options] <file ...>')
@@ -40,7 +41,7 @@ commander.command('swaggerscan [option]')
   .action(function (option, path) {
     if (path.config) {
       try {
-        if (path.config.indexOf('http://') !== -1 || path.config.indexOf('https://') !== -1) {
+        if (reg.test(path.config)) {
           tools.swaggerscan.index.scan(path.config)
         } else {
           $.err('Config url error！')
