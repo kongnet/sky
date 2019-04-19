@@ -44,10 +44,10 @@ commander.command('swaggerscan [option]')
         if (reg.test(path.config)) {
           tools.swaggerscan.index.scan(path.config)
         } else {
-          $.err('Config url error！')
+          $.err('File format error！')
         }
       } catch (e) {
-        $.err(e ? 'Config format error！' : 'Config file missing!')
+        $.err('Config format error！')
         process.exit()
       }
     } else {
