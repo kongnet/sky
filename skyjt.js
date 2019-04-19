@@ -18,7 +18,7 @@ commander.command('init')
 commander.command('dbscan [option]')
   .alias('db')
   .description($.c.g('scan Mysql JiaTui rules'))
-  .option('-c, --config <path>', 'defaults to ./dbscan.json')
+  .option('-c, --config <path>', 'defaults to ./config.js')
   .action(function (option, path) {
     // console.log(option, path.config)
     if (path.config) {
@@ -36,10 +36,14 @@ commander.command('commentscan [option]')
 commander.command('swaggerscan [option]')
   .alias('swagger')
   .description($.c.g('scan Swagger JiaTui rules'))
-  .option('-c, --config <path>', 'defaults to ./swagger.json')
+  .option('-c, --config <path>', 'defaults to ./config.js')
   .action(function (option, path) {
     // console.log(option, path.config)
-    tools.swaggerscan.index.scan()
+    if (path.config) {
+      tools.swaggerscan.index.scan(path.config)
+    } else {
+      tools.swaggerscan.index.scan()
+    }
   })
 commander.parse(process.argv)
 
