@@ -1,0 +1,19 @@
+{
+  "restartable": "rs",
+  "ignore": [
+    ".idea",
+    "*.html",
+    "*.css",
+    "*.txt",
+    ".git",
+    "www",
+    "sql",
+    "output",
+    "tests",
+    "tools",
+    "mochawesome-report",
+    "mochawesome-reports"
+  ],
+  "watch": [],
+  "verbose": false
+}
