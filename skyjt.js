@@ -3,19 +3,20 @@ let commander = require('commander')
 let $ = require('meeko')
 let Pack = require('./package.json')
 commander
-  .usage('[options] ')
+  .usage('[command] [options] <file ...>')
   .version(`[${$.c.g(Pack.version)}] Sky Framework`, '-v, --version')
   // .option('-a, --aaa-bbb', 'commander.aaaBbb')
-  .command('init [path]')
+commander.command('init')
   .alias('i')
   .description('Init Sky framework')
   .action(function (env, options) {
     console.log('do init')
   })
-  .command('dbscan -c config.json')
+commander.command('dbscan [option]')
   .description('scan DB')
-  .action(function (env, options) {
-    console.log('scan DB')
+  .option('-c, --config <path>', 'defaults to ./config.js')
+  .action(function (option, path) {
+    console.log(option, path.config)
   })
 
 commander.parse(process.argv)
