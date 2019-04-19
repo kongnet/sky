@@ -1,0 +1,1325 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "获客系统相关接口",
+		"version": "1.0",
+		"title": "获客系统",
+		"contact": {
+			"name": "瞿永亮",
+			"email": "leonqu@aijiatui.com"
+		}
+	},
+	"host": "msr.jiatuidev.com",
+	"basePath": "/ai-article",
+	"tags": [
+		{
+			"name": "文章域名管理",
+			"description": "Article Domain Controller"
+		},
+		{
+			"name": "获客文章",
+			"description": "Article Info Controller"
+		},
+		{
+			"name": "获客文章分享",
+			"description": "Article Share Controller"
+		},
+		{
+			"name": "获客文章验证",
+			"description": "Article Valid Controller"
+		}
+	],
+	"paths": {
+		"/article/domain/findDomain": {
+			"get": {
+				"tags": [
+					"文章域名管理"
+				],
+				"summary": "查询企业文章域名",
+				"operationId": "findDomainUsingGET",
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "companyId",
+						"in": "query",
+						"description": "企业ID",
+						"required": false,
+						"type": "integer",
+						"format": "int64"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ServiceResponse«string»"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/article/domain/updateDomain": {
+			"post": {
+				"tags": [
+					"文章域名管理"
+				],
+				"summary": "更新所有指定文章域名",
+				"operationId": "updateDomainUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "articleDomainReq",
+						"description": "企业域名请求",
+						"required": false,
+						"schema": {
+							"$ref": "#/definitions/ArticleDomainReq"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ServiceResponse«object»"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/article/domain/updateDomainId": {
+			"get": {
+				"tags": [
+					"文章域名管理"
+				],
+				"summary": "更新企业文章域名",
+				"operationId": "updateDomainIdUsingGET",
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "companyId",
+						"in": "query",
+						"description": "企业ID",
+						"required": false,
+						"type": "integer",
+						"format": "int64"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ServiceResponse«string»"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/article/info/sync": {
+			"post": {
+				"tags": [
+					"获客文章"
+				],
+				"summary": "获客文章同步",
+				"operationId": "syncArticleInfoUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "req",
+						"description": "req",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ArticleInfoSynReq"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ServiceResponse«object»"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/article/share/get": {
+			"get": {
+				"tags": [
+					"获客文章分享"
+				],
+				"summary": "查询指定获客文章分享",
+				"operationId": "getArticleConfigUsingGET",
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "id",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ServiceResponse«ArticleConfig»"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/article/share/history/list": {
+			"post": {
+				"tags": [
+					"获客文章分享"
+				],
+				"summary": "查询用户分享文章列表",
+				"operationId": "listShareHistoryUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "req",
+						"description": "req",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ArticleConfigListReq"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ServiceResponse«List«ArticleShareBase»»"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/article/share/list": {
+			"post": {
+				"tags": [
+					"获客文章分享"
+				],
+				"summary": "查询获客文章分享列表",
+				"operationId": "listArticleConfigUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "req",
+						"description": "req",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ArticleConfigListReq"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ServiceResponse«List«ArticleConfig»»"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/article/share/list/latest": {
+			"post": {
+				"tags": [
+					"获客文章分享"
+				],
+				"summary": "查询用户分享文章列表",
+				"operationId": "listLatestUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "req",
+						"description": "req",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ListLatestReq"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ServiceResponse«List«LatestShare»»"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/article/share/save": {
+			"post": {
+				"tags": [
+					"获客文章分享"
+				],
+				"summary": "保存获客文章分享",
+				"operationId": "saveArticleConfigUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "req",
+						"description": "req",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/ArticleShareSaveReq"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ServiceResponse«long»"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/article/share/thoughts/ref": {
+			"get": {
+				"tags": [
+					"获客文章分享"
+				],
+				"summary": "引用推荐感想时间触发器",
+				"operationId": "refThoughtsUsingGET",
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"description": "id",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ServiceResponse«boolean»"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/article/valid/share/duplicate": {
+			"post": {
+				"tags": [
+					"获客文章验证"
+				],
+				"summary": "换名片分享",
+				"operationId": "duplicateArticleShareUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "req",
+						"description": "req",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/DuplicateArticleShareReq"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ServiceResponse«long»"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/article/valid/share/privilege": {
+			"post": {
+				"tags": [
+					"获客文章验证"
+				],
+				"summary": "短信校验分享权限",
+				"operationId": "validSharePrivilegeUsingPOST",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "cardId",
+						"in": "query",
+						"description": "cardId",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"name": "i-companyId",
+						"in": "header",
+						"description": "i-companyId",
+						"required": true,
+						"type": "integer",
+						"format": "int64"
+					},
+					{
+						"name": "mobile",
+						"in": "query",
+						"description": "mobile",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ServiceResponse«SharePrivilegeResult»"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"deprecated": false
+			}
+		}
+	},
+	"definitions": {
+		"ArticleConfig": {
+			"type": "object",
+			"required": [
+				"articleId",
+				"cardId",
+				"cardOn",
+				"companyId",
+				"id",
+				"refNum",
+				"thoughts",
+				"websiteOn"
+			],
+			"properties": {
+				"articleId": {
+					"type": "integer",
+					"format": "int64",
+					"description": "文章ID"
+				},
+				"cardId": {
+					"type": "integer",
+					"format": "int64",
+					"description": "名片ID"
+				},
+				"cardName": {
+					"type": "string",
+					"description": "名片姓名"
+				},
+				"cardOn": {
+					"type": "integer",
+					"format": "int32",
+					"description": "是否显示名片：0-不显示，1-显示"
+				},
+				"companyId": {
+					"type": "integer",
+					"format": "int64",
+					"description": "企��ID"
+				},
+				"gmtCreate": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"gmtModified": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"headPhoto": {
+					"type": "string",
+					"description": "名片头像"
+				},
+				"id": {
+					"type": "integer",
+					"format": "int64",
+					"description": "获客文章分享配置ID"
+				},
+				"position": {
+					"type": "string",
+					"description": "名片职位"
+				},
+				"productIds": {
+					"type": "array",
+					"description": "获客文章对应的商品ID",
+					"items": {
+						"type": "integer",
+						"format": "int64"
+					}
+				},
+				"refNum": {
+					"type": "integer",
+					"format": "int32",
+					"description": "推荐感想引用次数"
+				},
+				"thoughts": {
+					"type": "string",
+					"description": "推荐感想"
+				},
+				"websiteOn": {
+					"type": "integer",
+					"format": "int32",
+					"description": "是否显示官网：0-不显示，1-显示"
+				}
+			},
+			"title": "ArticleConfig",
+			"description": "获客文章分享配置。员工分享获客文章时选择显示的信息"
+		},
+		"ArticleConfigListReq": {
+			"type": "object",
+			"required": [
+				"companyId"
+			],
+			"properties": {
+				"articleId": {
+					"type": "integer",
+					"format": "int64",
+					"description": "文章ID。不传查全部"
+				},
+				"cardId": {
+					"type": "integer",
+					"format": "int64",
+					"description": "名片ID。不传查全部"
+				},
+				"companyId": {
+					"type": "integer",
+					"format": "int64",
+					"description": "企业ID"
+				},
+				"pageNum": {
+					"type": "integer",
+					"format": "int32",
+					"description": "页码"
+				},
+				"pageSize": {
+					"type": "integer",
+					"format": "int32",
+					"description": "每页大小"
+				}
+			},
+			"title": "ArticleConfigListReq",
+			"description": "获客文章配置查询请求"
+		},
+		"ArticleDomainReq": {
+			"type": "object",
+			"properties": {
+				"domainUrl": {
+					"type": "string"
+				},
+				"newDomainUrl": {
+					"type": "string"
+				}
+			},
+			"title": "ArticleDomainReq",
+			"description": "文章域名请求"
+		},
+		"ArticleInfoSynReq": {
+			"type": "object",
+			"properties": {
+				"cTime": {
+					"type": "string",
+					"example": "2019-03-18 00:00:00",
+					"description": "创建时间"
+				},
+				"cateId": {
+					"type": "integer",
+					"format": "int64",
+					"example": 487691313471291392,
+					"description": "分类ID"
+				},
+				"companyId": {
+					"type": "integer",
+					"format": "int64",
+					"example": 487691313471291392,
+					"description": "企业id"
+				},
+				"cover": {
+					"type": "string",
+					"example": "http://resource.aijiatui.com/15914016454/company/product/97fdb58dbabbb70600e12ab43cce139d.jpeg",
+					"description": "文章封面图"
+				},
+				"cssDir": {
+					"type": "string",
+					"example": "http://resource.aijiatui.com/15914016454/company/product/97fdb58dbabbb70600e12ab43cce139d.jpeg",
+					"description": "外联css"
+				},
+				"dFlag": {
+					"type": "integer",
+					"format": "int32",
+					"example": 0,
+					"description": "删除状态：0未删除，1已删除"
+				},
+				"intro": {
+					"type": "string",
+					"example": "Swagger推荐语",
+					"description": "推荐语"
+				},
+				"mTime": {
+					"type": "string",
+					"example": "2019-03-18 00:00:00",
+					"description": "修改时间"
+				},
+				"onShelf": {
+					"type": "integer",
+					"format": "int32",
+					"example": 1,
+					"description": "0待上架（从未上架过），1已下架（曾经上架过），2已上架"
+				},
+				"onShelfTime": {
+					"type": "string",
+					"example": "2019-03-18 00:00:00",
+					"description": "上架时间"
+				},
+				"optType": {
+					"type": "string",
+					"example": "ON_SHELF",
+					"description": "操作类型。ON_SHELF：上架，UPDATE_ON_SHELF：已上架文章更新，OFF_SHELF：下架",
+					"enum": [
+						"ON_SHELF",
+						"UPDATE_ON_SHELF",
+						"OFF_SHELF"
+					]
+				},
+				"sid": {
+					"type": "integer",
+					"format": "int64",
+					"example": 487691313471291392,
+					"description": "文章sid"
+				},
+				"sourceName": {
+					"type": "string",
+					"example": "原创",
+					"description": "文章来源名称: 原创、来源公众号名字"
+				},
+				"sourceType": {
+					"type": "integer",
+					"format": "int32",
+					"example": 0,
+					"description": "文章来源类型:0 企业公众号、1复制链接、2自定义添加"
+				},
+				"sourceUrl": {
+					"type": "string",
+					"example": "http://resource.aijiatui.com/15914016454/company/product/97fdb58dbabbb70600e12ab43cce139d.jpeg",
+					"description": "文章查看链接"
+				},
+				"spideStatus": {
+					"type": "integer",
+					"format": "int32",
+					"example": 1,
+					"description": "爬取状态，0爬取中，1爬取成功，2爬取失败"
+				},
+				"state": {
+					"type": "integer",
+					"format": "int32",
+					"example": 0,
+					"description": "0：无状态，1：被投诉导致的下架或删除"
+				},
+				"tags": {
+					"type": "string",
+					"example": "Swagger标签",
+					"description": "标签，多个用英文半角逗号分隔"
+				},
+				"title": {
+					"type": "string",
+					"example": "Swagger文章标题",
+					"description": "文章标题"
+				}
+			},
+			"title": "ArticleInfoSynReq",
+			"description": "获客文章同步请求"
+		},
+		"ArticleShareBase": {
+			"type": "object",
+			"required": [
+				"articleId",
+				"cardId",
+				"companyId"
+			],
+			"properties": {
+				"articleId": {
+					"type": "integer",
+					"format": "int64",
+					"description": "文章ID"
+				},
+				"cardId": {
+					"type": "integer",
+					"format": "int64",
+					"description": "名片ID"
+				},
+				"companyId": {
+					"type": "integer",
+					"format": "int64",
+					"description": "企业ID"
+				}
+			},
+			"title": "ArticleShareBase",
+			"description": "文章分享基础类"
+		},
+		"ArticleShareSaveReq": {
+			"type": "object",
+			"required": [
+				"articleId",
+				"cardOn",
+				"thoughts",
+				"websiteOn"
+			],
+			"properties": {
+				"articleId": {
+					"type": "integer",
+					"format": "int64",
+					"example": 888,
+					"description": "文章的sid"
+				},
+				"cardOn": {
+					"type": "integer",
+					"format": "int32",
+					"example": 1,
+					"description": "是否显示名片：0-不显示，1-显示"
+				},
+				"cover": {
+					"type": "string",
+					"example": "http://resource.aijiatui.com/15914016454/company/product/97fdb58dbabbb70600e12ab43cce139d.jpeg",
+					"description": "文章封面图"
+				},
+				"productIds": {
+					"type": "array",
+					"example": [
+						1,
+						2,
+						3
+					],
+					"description": "获客文章对应的商品ID",
+					"items": {
+						"type": "integer",
+						"format": "int64"
+					}
+				},
+				"thoughts": {
+					"type": "string",
+					"example": "Swagger推荐感想",
+					"description": "推荐感想"
+				},
+				"title": {
+					"type": "string",
+					"example": "Swagger文章标题",
+					"description": "文章标题"
+				},
+				"websiteOn": {
+					"type": "integer",
+					"format": "int32",
+					"example": 1,
+					"description": "是否显示官网：0-不显示，1-显示"
+				}
+			},
+			"title": "ArticleShareSaveReq",
+			"description": "保存文章分享信息请求"
+		},
+		"DuplicateArticleShareReq": {
+			"type": "object",
+			"required": [
+				"cardId",
+				"shareId",
+				"smsCode"
+			],
+			"properties": {
+				"cardId": {
+					"type": "integer",
+					"format": "int64",
+					"description": "通过验证码获取到的cardId"
+				},
+				"cover": {
+					"type": "string",
+					"example": "http://resource.aijiatui.com/15914016454/company/product/97fdb58dbabbb70600e12ab43cce139d.jpeg",
+					"description": "文章封面图"
+				},
+				"shareId": {
+					"type": "integer",
+					"format": "int64",
+					"description": "当前文章的分享id"
+				},
+				"smsCode": {
+					"type": "string",
+					"description": "购买时收到的验证码"
+				},
+				"title": {
+					"type": "string",
+					"example": "Swagger文章标题",
+					"description": "文章标题"
+				}
+			},
+			"title": "DuplicateArticleShareReq",
+			"description": "换名片分享请求"
+		},
+		"LatestShare": {
+			"type": "object",
+			"properties": {
+				"articleId": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"cardId": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"latestShareId": {
+					"type": "integer",
+					"format": "int64"
+				}
+			},
+			"title": "LatestShare"
+		},
+		"ListLatestReq": {
+			"type": "object",
+			"properties": {
+				"articleIds": {
+					"type": "array",
+					"items": {
+						"type": "integer",
+						"format": "int64"
+					}
+				},
+				"cardId": {
+					"type": "integer",
+					"format": "int64"
+				}
+			},
+			"title": "ListLatestReq"
+		},
+		"ServiceApi": {
+			"type": "object",
+			"properties": {
+				"host": {
+					"type": "string"
+				},
+				"id": {
+					"type": "string"
+				},
+				"ipAddress": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"path": {
+					"type": "string"
+				},
+				"port": {
+					"type": "integer",
+					"format": "int32"
+				}
+			},
+			"title": "ServiceApi"
+		},
+		"ServiceResponse«ArticleConfig»": {
+			"type": "object",
+			"properties": {
+				"callbacks": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ServiceApi"
+					}
+				},
+				"code": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"data": {
+					"$ref": "#/definitions/ArticleConfig"
+				},
+				"exts": {
+					"type": "object"
+				},
+				"msg": {
+					"type": "string"
+				},
+				"rollbacks": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ServiceApi"
+					}
+				}
+			},
+			"title": "ServiceResponse«ArticleConfig»"
+		},
+		"ServiceResponse«List«ArticleConfig»»": {
+			"type": "object",
+			"properties": {
+				"callbacks": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ServiceApi"
+					}
+				},
+				"code": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"data": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ArticleConfig"
+					}
+				},
+				"exts": {
+					"type": "object"
+				},
+				"msg": {
+					"type": "string"
+				},
+				"rollbacks": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ServiceApi"
+					}
+				}
+			},
+			"title": "ServiceResponse«List«ArticleConfig»»"
+		},
+		"ServiceResponse«List«ArticleShareBase»»": {
+			"type": "object",
+			"properties": {
+				"callbacks": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ServiceApi"
+					}
+				},
+				"code": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"data": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ArticleShareBase"
+					}
+				},
+				"exts": {
+					"type": "object"
+				},
+				"msg": {
+					"type": "string"
+				},
+				"rollbacks": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ServiceApi"
+					}
+				}
+			},
+			"title": "ServiceResponse«List«ArticleShareBase»»"
+		},
+		"ServiceResponse«List«LatestShare»»": {
+			"type": "object",
+			"properties": {
+				"callbacks": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ServiceApi"
+					}
+				},
+				"code": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"data": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/LatestShare"
+					}
+				},
+				"exts": {
+					"type": "object"
+				},
+				"msg": {
+					"type": "string"
+				},
+				"rollbacks": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ServiceApi"
+					}
+				}
+			},
+			"title": "ServiceResponse«List«LatestShare»»"
+		},
+		"ServiceResponse«SharePrivilegeResult»": {
+			"type": "object",
+			"properties": {
+				"callbacks": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ServiceApi"
+					}
+				},
+				"code": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"data": {
+					"$ref": "#/definitions/SharePrivilegeResult"
+				},
+				"exts": {
+					"type": "object"
+				},
+				"msg": {
+					"type": "string"
+				},
+				"rollbacks": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ServiceApi"
+					}
+				}
+			},
+			"title": "ServiceResponse«SharePrivilegeResult»"
+		},
+		"ServiceResponse«boolean»": {
+			"type": "object",
+			"properties": {
+				"callbacks": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ServiceApi"
+					}
+				},
+				"code": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"data": {
+					"type": "boolean"
+				},
+				"exts": {
+					"type": "object"
+				},
+				"msg": {
+					"type": "string"
+				},
+				"rollbacks": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ServiceApi"
+					}
+				}
+			},
+			"title": "ServiceResponse«boolean»"
+		},
+		"ServiceResponse«long»": {
+			"type": "object",
+			"properties": {
+				"callbacks": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ServiceApi"
+					}
+				},
+				"code": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"data": {
+					"type": "integer",
+					"format": "int64"
+				},
+				"exts": {
+					"type": "object"
+				},
+				"msg": {
+					"type": "string"
+				},
+				"rollbacks": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ServiceApi"
+					}
+				}
+			},
+			"title": "ServiceResponse«long»"
+		},
+		"ServiceResponse«object»": {
+			"type": "object",
+			"properties": {
+				"callbacks": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ServiceApi"
+					}
+				},
+				"code": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"data": {
+					"type": "object"
+				},
+				"exts": {
+					"type": "object"
+				},
+				"msg": {
+					"type": "string"
+				},
+				"rollbacks": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ServiceApi"
+					}
+				}
+			},
+			"title": "ServiceResponse«object»"
+		},
+		"ServiceResponse«string»": {
+			"type": "object",
+			"properties": {
+				"callbacks": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ServiceApi"
+					}
+				},
+				"code": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"data": {
+					"type": "string"
+				},
+				"exts": {
+					"type": "object"
+				},
+				"msg": {
+					"type": "string"
+				},
+				"rollbacks": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ServiceApi"
+					}
+				}
+			},
+			"title": "ServiceResponse«string»"
+		},
+		"SharePrivilegeResult": {
+			"type": "object",
+			"required": [
+				"cardId",
+				"smsId"
+			],
+			"properties": {
+				"cardId": {
+					"type": "integer",
+					"format": "int64",
+					"description": "名片ID"
+				},
+				"smsId": {
+					"type": "integer",
+					"format": "int64",
+					"description": "短信ID"
+				}
+			},
+			"title": "SharePrivilegeResult",
+			"description": "H5分享文章权限校验结果"
+		}
+	}
+}
