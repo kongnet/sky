@@ -2,23 +2,45 @@
 let commander = require('commander')
 let $ = require('meeko')
 let Pack = require('./package.json')
+let path = require('path')
+let tools = $.requireAll(path.join(__dirname, '.', 'lib'))
+
 commander
   .usage('[command] [options] <file ...>')
   .version(`[${$.c.g(Pack.version)}] Sky Framework`, '-v, --version')
   // .option('-a, --aaa-bbb', 'commander.aaaBbb')
 commander.command('init')
   .alias('i')
-  .description('Init Sky framework')
+  .description('Init Sky Framework')
   .action(function (env, options) {
     console.log('do init')
   })
 commander.command('dbscan [option]')
-  .description('scan DB')
-  .option('-c, --config <path>', 'defaults to ./config.js')
+  .alias('db')
+  .description($.c.g('scan Mysql JiaTui rules'))
+  .option('-c, --config <path>', 'defaults to ./dbscan.json')
+  .action(function (option, path) {
+    // console.log(option, path.config)
+    if (path.config) {
+      tools.dbscan.index.scan(path.config)
+    } else {
+      tools.dbscan.index.scan()
+    }
+  })
+commander.command('commentscan [option]')
+  .description('scan Function Comment')
+  .option('-c, --config <path>', 'defaults to ./commentscan.json')
+  .action(function (option, path) {
+    console.log(1234)
+    console.log(option, path.config)
+    tools.commentscan.index(path.config)
+  })
+commander.command('swaggerscan [option]')
+  .description('scan Swagger file')
+  .option('-c, --config <path>', 'defaults to ./swagger.json')
   .action(function (option, path) {
     console.log(option, path.config)
   })
-
 commander.parse(process.argv)
 
 if (process.argv.length === 2) {
