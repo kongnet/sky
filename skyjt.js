@@ -52,6 +52,26 @@ commander.command('history')
   .action(function (option, path) {
     tools.todayhistory.index.scan()
   })
+commander.command('get')
+  .description('get url')
+  .option('-p, --param [param]', '')
+  .option('-h, --host [param]', '')
+  .action(function (option, path) {
+    if (option.host.includes('http://') || option.host.includes('https://')) {
+      option.method = 'get'
+      tools.curl.index.scan(option)
+    }
+  })
+commander.command('post')
+  .description('post url')
+  .option('-p, --param [param]', '')
+  .option('-h, --host [param]', '')
+  .action(function (option, path) {
+    if (option.host.includes('http://') || option.host.includes('https://')) {
+      option.method = 'post'
+      tools.curl.index.scan(option)
+    }
+  })
 commander.parse(process.argv)
 
 if (process.argv.length === 2) {
