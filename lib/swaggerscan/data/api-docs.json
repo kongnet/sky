@@ -1,12 +1,12 @@
 {
 	"swagger": "2.0",
 	"info": {
-		"description": "获客系统相关接口",
+		"description": "xx系统相关接口",
 		"version": "1.0",
-		"title": "获客系统",
+		"title": "xx系统",
 		"contact": {
-			"name": "瞿永亮",
-			"email": "leonqu@aijiatui.com"
+			"name": "xxx",
+			"email": "xxxx@xxx.com"
 		}
 	},
 	"host": "msr.jiatuidev.com",
@@ -17,15 +17,15 @@
 			"description": "Article Domain Controller"
 		},
 		{
-			"name": "获客文章",
+			"name": "xxx文章",
 			"description": "Article Info Controller"
 		},
 		{
-			"name": "获客文章分享",
+			"name": "xxx文章分享",
 			"description": "Article Share Controller"
 		},
 		{
-			"name": "获客文章验证",
+			"name": "xxx文章验证",
 			"description": "Article Valid Controller"
 		}
 	],
@@ -160,9 +160,9 @@
 		"/article/info/sync": {
 			"post": {
 				"tags": [
-					"获客文章"
+					"xxx文章"
 				],
-				"summary": "获客文章同步",
+				"summary": "xxx文章同步",
 				"operationId": "syncArticleInfoUsingPOST",
 				"consumes": [
 					"application/json"
@@ -207,9 +207,9 @@
 		"/article/share/get": {
 			"get": {
 				"tags": [
-					"获客文章分享"
+					"xxx文章分享"
 				],
-				"summary": "查询指定获客文章分享",
+				"summary": "查询指定xxx文章分享",
 				"operationId": "getArticleConfigUsingGET",
 				"produces": [
 					"*/*"
@@ -247,7 +247,7 @@
 		"/article/share/history/list": {
 			"post": {
 				"tags": [
-					"获客文章分享"
+					"xxx文章分享"
 				],
 				"summary": "查询用户分享文章列表",
 				"operationId": "listShareHistoryUsingPOST",
@@ -294,9 +294,9 @@
 		"/article/share/list": {
 			"post": {
 				"tags": [
-					"获客文章分享"
+					"xxx文章分享"
 				],
-				"summary": "查询获客文章分享列表",
+				"summary": "查询xxx文章分享列表",
 				"operationId": "listArticleConfigUsingPOST",
 				"consumes": [
 					"application/json"
@@ -341,7 +341,7 @@
 		"/article/share/list/latest": {
 			"post": {
 				"tags": [
-					"获客文章分享"
+					"xxx文章分享"
 				],
 				"summary": "查询用户分享文章列表",
 				"operationId": "listLatestUsingPOST",
@@ -388,9 +388,9 @@
 		"/article/share/save": {
 			"post": {
 				"tags": [
-					"获客文章分享"
+					"xxx文章分享"
 				],
-				"summary": "保存获客文章分享",
+				"summary": "保存xxx文章分享",
 				"operationId": "saveArticleConfigUsingPOST",
 				"consumes": [
 					"application/json"
@@ -435,7 +435,7 @@
 		"/article/share/thoughts/ref": {
 			"get": {
 				"tags": [
-					"获客文章分享"
+					"xxx文章分享"
 				],
 				"summary": "引用推荐感想时间触发器",
 				"operationId": "refThoughtsUsingGET",
@@ -475,7 +475,7 @@
 		"/article/valid/share/duplicate": {
 			"post": {
 				"tags": [
-					"获客文章验证"
+					"xxx文章验证"
 				],
 				"summary": "换名片分享",
 				"operationId": "duplicateArticleShareUsingPOST",
@@ -522,7 +522,7 @@
 		"/article/valid/share/privilege": {
 			"post": {
 				"tags": [
-					"获客文章验证"
+					"xxx文章验证"
 				],
 				"summary": "短信校验分享权限",
 				"operationId": "validSharePrivilegeUsingPOST",
@@ -634,7 +634,7 @@
 				"id": {
 					"type": "integer",
 					"format": "int64",
-					"description": "获客文章分享配置ID"
+					"description": "xxx文章分享配置ID"
 				},
 				"position": {
 					"type": "string",
@@ -642,7 +642,7 @@
 				},
 				"productIds": {
 					"type": "array",
-					"description": "获客文章对应的商品ID",
+					"description": "xxx文章对应的商品ID",
 					"items": {
 						"type": "integer",
 						"format": "int64"
@@ -664,7 +664,7 @@
 				}
 			},
 			"title": "ArticleConfig",
-			"description": "获客文章分享配置。员工分享获客文章时选择显示的信息"
+			"description": "xxx文章分享配置。员工分享xxx文章时选择显示的信息"
 		},
 		"ArticleConfigListReq": {
 			"type": "object",
@@ -699,7 +699,7 @@
 				}
 			},
 			"title": "ArticleConfigListReq",
-			"description": "获客文章配置查询请求"
+			"description": "xxx文章配置查询请求"
 		},
 		"ArticleDomainReq": {
 			"type": "object",
@@ -736,12 +736,12 @@
 				},
 				"cover": {
 					"type": "string",
-					"example": "http://resource.aijiatui.com/15914016454/company/product/97fdb58dbabbb70600e12ab43cce139d.jpeg",
+					"example": "http://xxx.xxx.com/xxx/xxx.jpeg",
 					"description": "文章封面图"
 				},
 				"cssDir": {
 					"type": "string",
-					"example": "http://resource.aijiatui.com/15914016454/company/product/97fdb58dbabbb70600e12ab43cce139d.jpeg",
+					"example": "http://xxx.xxx.com/xxx/xxx.jpeg",
 					"description": "外联css"
 				},
 				"dFlag": {
@@ -800,7 +800,7 @@
 				},
 				"sourceUrl": {
 					"type": "string",
-					"example": "http://resource.aijiatui.com/15914016454/company/product/97fdb58dbabbb70600e12ab43cce139d.jpeg",
+					"example": "http://xxx.xxx.com/xxx/xxx.jpeg",
 					"description": "文章查看链接"
 				},
 				"spideStatus": {
@@ -827,7 +827,7 @@
 				}
 			},
 			"title": "ArticleInfoSynReq",
-			"description": "获客文章同步请求"
+			"description": "xxx文章同步请求"
 		},
 		"ArticleShareBase": {
 			"type": "object",
@@ -879,7 +879,7 @@
 				},
 				"cover": {
 					"type": "string",
-					"example": "http://resource.aijiatui.com/15914016454/company/product/97fdb58dbabbb70600e12ab43cce139d.jpeg",
+					"example": "http://xxx.xxx.com/xxx/xxx.jpeg",
 					"description": "文章封面图"
 				},
 				"productIds": {
@@ -889,7 +889,7 @@
 						2,
 						3
 					],
-					"description": "获客文章对应的商品ID",
+					"description": "xxx文章对应的商品ID",
 					"items": {
 						"type": "integer",
 						"format": "int64"
@@ -930,7 +930,7 @@
 				},
 				"cover": {
 					"type": "string",
-					"example": "http://resource.aijiatui.com/15914016454/company/product/97fdb58dbabbb70600e12ab43cce139d.jpeg",
+					"example": "http://xxx.xxx.com/xxx/xxx.jpeg",
 					"description": "文章封面图"
 				},
 				"shareId": {

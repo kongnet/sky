@@ -4,7 +4,6 @@ let $ = require('meeko')
 let Pack = require('./package.json')
 let path = require('path')
 let tools = $.requireAll(path.join(__dirname, '.', 'lib'))
-let reg = /(http|https):\/\/([\w.]+\/?)\S*/
 
 commander
   .usage('[command] [options] <file ...>')
@@ -18,7 +17,7 @@ commander.command('init')
   })
 commander.command('dbscan [option]')
   .alias('db')
-  .description($.c.g('scan Mysql JiaTui rules'))
+  .description('scan ' + $.c.g('Mysql JiaTui rules') + ' Default: 127.0.0.1/root/123456')
   .option('-c, --config <path>', 'defaults to ./config.js')
   .action(function (option, path) {
     // console.log(option, path.config)
@@ -29,7 +28,8 @@ commander.command('dbscan [option]')
     }
   })
 commander.command('commentscan [option]')
-  .description('scan Function Comment')
+  .alias('comment')
+  .description('scan ' + $.c.g('Function Comment JiaTui rules'))
   // .option('-c, --config <path>', 'defaults to ./commentscan.json')
   .action(function (option, path) {
     // console.log(option, path.config)
@@ -37,12 +37,13 @@ commander.command('commentscan [option]')
   })
 commander.command('swaggerscan [option]')
   .alias('swagger')
-  .description($.c.g('scan Swagger JiaTui rules'))
+  .description('scan ' + $.c.g('Swagger JiaTui rules'))
   .option('-c, --config <path>', 'defaults to ./config.js')
   .action(function (option, path) {
+    // $.log('swagger', path.config)
     if (path.config) {
       try {
-        if (reg.test(path.config)) {
+        if (path.config) {
           tools.swaggerscan.index.scan(path.config)
         } else {
           $.err('File format error！')
