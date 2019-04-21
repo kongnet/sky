@@ -53,7 +53,7 @@ commander.command('history')
     tools.todayhistory.index.scan()
   })
 commander.command('get')
-  .description('get url')
+  .description(`${$.c.g('Get')} url`)
   .option('-p, --param [param]', '')
   .option('-h, --host [param]', '')
   .action(function (option, path) {
@@ -63,7 +63,7 @@ commander.command('get')
     }
   })
 commander.command('post')
-  .description('post url')
+  .description(`${$.c.g('Post')} url`)
   .option('-p, --param [param]', '')
   .option('-h, --host [param]', '')
   .action(function (option, path) {
