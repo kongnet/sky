@@ -42,19 +42,15 @@ commander.command('swaggerscan [option]')
   .action(function (option, path) {
     // $.log('swagger', path.config)
     if (path.config) {
-      try {
-        if (path.config) {
-          tools.swaggerscan.index.scan(path.config)
-        } else {
-          $.err('File format error！')
-        }
-      } catch (e) {
-        $.err('Config format error！')
-        process.exit()
-      }
+      tools.swaggerscan.index.scan(path.config)
     } else {
       tools.swaggerscan.index.scan()
     }
+  })
+commander.command('history')
+  .description('today history ')
+  .action(function (option, path) {
+    tools.todayhistory.index.scan()
   })
 commander.parse(process.argv)
 
