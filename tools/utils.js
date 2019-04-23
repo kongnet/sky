@@ -11,7 +11,7 @@ const path = require('path')
  * @returns {*}
  */
 function resolvePath (file) {
-  return path.resolve(__dirname, file)
+  return path.resolve(process.cwd(), file)
 }
 
 module.exports = {
