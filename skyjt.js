@@ -30,9 +30,8 @@ commander.command('dbscan [option]')
 commander.command('commentscan [option]')
   .alias('comment')
   .description('scan ' + $.c.g('Function Comment JiaTui rules'))
-  // .option('-c, --config <path>', 'defaults to ./commentscan.json')
+  .option('-c, --config <path>', 'defaults to ./commentConf.js')
   .action(function (option, path) {
-    // console.log(option, path.config)
     tools.commentscan.index(path.config)
   })
 commander.command('swaggerscan [option]')
@@ -55,9 +54,9 @@ commander.command('history')
 commander.command('get')
   .description(`${$.c.g('Get')} url`)
   .option('-p, --param [param]', '')
-  .option('-h, --host [param]', '')
+  .option('-h, --host <param>', '')
   .action(function (option, path) {
-    if (option.host.includes('http://') || option.host.includes('https://')) {
+    if (option.host && (option.host.includes('http://') || option.host.includes('https://'))) {
       option.method = 'get'
       tools.curl.index.scan(option)
     }
@@ -65,9 +64,9 @@ commander.command('get')
 commander.command('post')
   .description(`${$.c.g('Post')} url`)
   .option('-p, --param [param]', '')
-  .option('-h, --host [param]', '')
+  .option('-h, --host <param>', '')
   .action(function (option, path) {
-    if (option.host.includes('http://') || option.host.includes('https://')) {
+    if (option.host && (option.host.includes('http://') || option.host.includes('https://'))) {
       option.method = 'post'
       tools.curl.index.scan(option)
     }
