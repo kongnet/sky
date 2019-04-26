@@ -9,11 +9,14 @@ commander
   .usage('[command] [options] <file ...>')
   .version(`[${$.c.g(Pack.version)}] Sky Framework`, '-v, --version')
 // .option('-a, --aaa-bbb', 'commander.aaaBbb')
-commander.command('init')
+commander.command('init [option]')
   .alias('i')
-  .description('Init Sky Framework')
-  .action(function (env, options) {
-    console.log('do init')
+  .description($.c.g('Init') + ' Sky Framework')
+  .option('-c, --create <name>', 'defaults to ./output')
+  .action(function (option, name) {
+    // console.log(name.create)
+    tools.init.index.init(name.create ? name.create : 'output')
+    console.log('Init Done.')
   })
 commander.command('dbscan [option]')
   .alias('db')
