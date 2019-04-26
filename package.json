@@ -1,6 +1,6 @@
 {
   "name": "skyjt",
-  "version": "0.9.14",
+  "version": "0.9.15",
   "description": "skyjt",
   "main": "skyjt.js",
   "dependencies": {
