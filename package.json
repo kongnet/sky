@@ -6,9 +6,9 @@
   "dependencies": {
     "bluebird": "^3.5.4",
     "commander": "^2.20.0",
-    "j2dir": "^0.1.4",
+    "j2dir": "^0.1.5",
     "j2sql": "^1.9.21",
-    "meeko": "^1.7.47",
+    "meeko": "^1.7.49",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7"
   },
