@@ -33,10 +33,10 @@ commander.command('dbscan [option]')
   .alias('db')
   .description('scan ' + $.c.g('Mysql JiaTui rules') + ' Default: 127.0.0.1/root/123456')
   .option('-c, --config <path>', 'defaults to ./config.js')
-  .action(function (option, path) {
-    // console.log(option, path.config)
-    if (path.config) {
-      tools.dbscan.index.scan(path.config)
+  .action(function (option, p) {
+    // console.log(option, p.config)
+    if (p.config) {
+      tools.dbscan.index.scan(p.config)
     } else {
       tools.dbscan.index.scan()
     }
@@ -69,7 +69,7 @@ commander.command('swaggerscan [option]')
   .alias('swagger')
   .description('scan ' + $.c.g('Swagger JiaTui rules'))
   .option('-c, --config <path>', 'defaults to ./config.js')
-  .action(async function (option, path) {
+  .action(async function (option, p) {
     // $.log('swagger', path.config)
     let spinner = new $.Spinner()
     spinner.start('Swagger scan...')
@@ -86,31 +86,38 @@ commander.command('swaggerscan [option]')
       process.exit(0)
     }, 2000)
   })
+commander.command('wttr')
+  .description('weather output -c [city]')
+  .option('-c, --city [city]', 'defaults local')
+  .action(function (option, p) {
+    // $.log(option.city)
+    tools.curl.index.wttr(option.city)
+  })
 commander.command('history')
   .description('today history ')
-  .action(function (option, path) {
+  .action(function (option, p) {
     tools.todayhistory.index.scan()
   })
 commander.command('fun')
   .description('fun output')
-  .action(function (option, path) {
+  .action(function (option, p) {
     keyboard()
   })
 commander.command('get')
-  .description(`${$.c.g('Get')} url`)
+  .description(`${$.c.g('Get')} -h url -p param`)
   .option('-p, --param [param]', '')
   .option('-h, --host <param>', '')
-  .action(function (option, path) {
+  .action(function (option, p) {
     if (option.host && (option.host.includes('http://') || option.host.includes('https://'))) {
       option.method = 'get'
       tools.curl.index.scan(option)
     }
   })
 commander.command('post')
-  .description(`${$.c.g('Post')} url`)
+  .description(`${$.c.g('Post')} -h url -p param`)
   .option('-p, --param [param]', '')
   .option('-h, --host <param>', '')
-  .action(function (option, path) {
+  .action(function (option, p) {
     if (option.host && (option.host.includes('http://') || option.host.includes('https://'))) {
       option.method = 'post'
       tools.curl.index.scan(option)
@@ -122,22 +129,6 @@ if (process.argv.length === 2) {
   console.log(`[${$.c.g(Pack.version)}] Sky framework: ${$.c.y('sky init')}`)
 }
 /*
-let spinner = new $.Spinner('dots7')
+let spinner = new $.Spinner('dots2')
 spinner.start()
-
-var out = process.stdout
-var numOfLinesToClear = 0
-out.write('1\n') // prints `1` and new line
-++numOfLinesToClear
-out.write('2\n')
-++numOfLinesToClear
-process.stdout.moveCursor(0, -numOfLinesToClear) // move the cursor to first line
-setInterval(function () {
-  process.stdout.clearLine()
-  out.cursorTo(0) // moves the cursor at the beginning of line
-  out.write(`${3 + index}\n`) // prints `3`
-  out.write(`${4 + index}\n`) // prints new line and `4`
-  process.stdout.moveCursor(0, -numOfLinesToClear)
-  index++
-}, 1000)
 */
