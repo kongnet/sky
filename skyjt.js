@@ -93,6 +93,12 @@ commander.command('wttr')
     // $.log(option.city)
     tools.curl.index.wttr(option.city)
   })
+commander.command('coin')
+  .description('cryptocurrencies exchange rates -c [coin name]')
+  .option('-c, --coin [name]', 'defaults top 10')
+  .action(function (option, p) {
+    tools.curl.index.coin(option.coin)
+  })
 commander.command('history')
   .description('today history ')
   .action(function (option, p) {
