@@ -41,6 +41,11 @@ commander.command('dbscan [option]')
       tools.dbscan.index.scan()
     }
   })
+commander.command('gitstat')
+  .description('Statistics git author commits and lines')
+  .action(function (option, p) {
+    tools.gitstat.index.scan()
+  })
 commander.command('commentscan [option]')
   .alias('comment')
   .description('scan ' + $.c.g('Function Comment JiaTui rules.'))
