@@ -12,6 +12,7 @@
     "tests",
     "tools",
     "mochawesome-report",
+    "output",
     "mochawesome-reports"
   ],
   "watch": [],
