@@ -14,11 +14,12 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "patch": "git add . && git commit -m:pencil2: && npm version patch && npm publish ."
   },
   "bin": {
     "skyjt": "./skyjt.js"
   },
   "author": "skykong",
-  "license": "ISC"
+  "license": "BSD"
 }
