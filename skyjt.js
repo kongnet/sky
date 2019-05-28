@@ -5,7 +5,7 @@ let Pack = require('./package.json')
 let path = require('path')
 let tools = $.requireAll(path.join(__dirname, '.', 'lib'))
 // 输出字符键盘
-function keyboard () {
+function keyboard() {
   console.log((_ => [..."`1234567890-=~~QWERTYUIOP[]\\~ASDFGHJKL;'~~ZXCVBNM,./~"].map(x => (o += `/${b = '_'.repeat(w = x < y ? 2 : ' 667699'[x = ['BS', 'TAB', 'CAPS', 'ENTER'][p++] || 'SHIFT', p])}\\|`, m += y + (x + '    ').slice(0, w) + y + y, n += y + b + y + y, l += ' __' + b)[73] && (k.push(l, m, n, o), l = '', m = n = o = y), m = n = o = y = '|', p = l = k = []) && k.join`
 `)())
 }
@@ -16,13 +16,22 @@ commander
 commander.command('init [option]')
   .alias('i')
   .description($.c.g('Init') + ' Sky Framework')
-  .option('-c, --create <name>', 'defaults to ./output')
+  .option('-n, --name <name>', 'defaults to ./output')
+  .option('-c, --create <file>', 'defaults path from ./config.js, defalut to ./output')
   .option('-f, --force', 'cover dir')
   .action(function (option, name) {
     // console.log(name.force)
     let spinner = new $.Spinner()
     spinner.start('Project Init...')
-    tools.init.index.init(name.create ? name.create : 'output', name.force)
+    if (name.create) {
+      const setting = require(path.join(__dirname, name.create))
+      let projectName = 'output'
+      if (typeof name.name === 'string') projectName = name.name
+      tools.init.index.initWithConfig(projectName, setting, name.force)
+    } else if (name.name) {
+      tools.init.index.init(name.name ? name.name : 'output', name.force)
+    }
+    // tools.init.index.init(name.create ? name.create : 'output', name.force)
     setTimeout(function () {
       spinner.stop()
       console.log('Init Done.')
