@@ -22,3 +22,7 @@
 npm i -g skyjt
 ```
 ![comment](https://github.com/kongnet/sky/raw/master/screenShot/1.gif)
+
+```js
+skyjt init -n outputMP -t mp -f //在当前创建 outputMP目录 将 小程序模板 生成在其下，并强制覆盖 已有的文件
+```

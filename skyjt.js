@@ -4,6 +4,7 @@ let $ = require('meeko')
 let Pack = require('./package.json')
 let path = require('path')
 let tools = $.requireAll(path.join(__dirname, '.', 'lib'))
+let spinnerHandler = {}
 // 输出字符键盘
 function keyboard () {
   console.log((_ => [..."`1234567890-=~~QWERTYUIOP[]\\~ASDFGHJKL;'~~ZXCVBNM,./~"].map(x => (o += `/${b = '_'.repeat(w = x < y ? 2 : ' 667699'[x = ['BS', 'TAB', 'CAPS', 'ENTER'][p++] || 'SHIFT', p])}\\|`, m += y + (x + '    ').slice(0, w) + y + y, n += y + b + y + y, l += ' __' + b)[73] && (k.push(l, m, n, o), l = '', m = n = o = y), m = n = o = y = '|', p = l = k = []) && k.join`
@@ -13,19 +14,34 @@ commander
   .usage('[command] [options] <file ...>')
   .version(`[${$.c.g(Pack.version)}] Sky Framework`, '-v, --version')
 // .option('-a, --aaa-bbb', 'commander.aaaBbb')
+// .option('-mp, --mp', 'cheat miniProgram')
+
 commander.command('init [option]')
   .alias('i')
-  .description($.c.g('Init') + ' Sky Framework')
-  .option('-c, --create <name>', 'defaults to ./output')
-  .option('-f, --force', 'cover dir')
-  .action(function (option, name) {
-    // console.log(name.force)
-    let spinner = new $.Spinner()
-    spinner.start('Project Init...')
-    tools.init.index.init(name.create ? name.create : 'output', name.force)
+  .description($.c.g('Init') + ' Sky Framework or .js like skyFrameworkConfig.js')
+  .option('-n, --name <name>', 'defaults to ./output')
+  .option('-c, --config <file>', 'read config path from .js, defalut to ./output')
+  .option('-t, --template <templatename>', 'sky|mp| ...')
+  .option('-f, --force', 'force cover dir')
+  .action(async function (option, name) {
+    let r = {}
+    spinnerHandler = new $.Spinner()
+    spinnerHandler.start('Project Init...')
+    let projectName = 'output'
+    if (typeof name.name === 'string') projectName = name.name
+    if (name.config) {
+      const setting = require(path.join(__dirname, name.config))
+      r = await tools.init.index.init(name.name ? projectName : 'output', name.force, name.template, setting)
+      // tools.init.index.initByConfig(projectName, setting, name.force)
+    } else {
+      r = await tools.init.index.init(name.name ? projectName : 'output', name.force, name.template)
+    }
+    // tools.init.index.init(name.create ? name.create : 'output', name.force)
     setTimeout(function () {
-      spinner.stop()
-      console.log('Init Done.')
+      spinnerHandler.stop()
+      if (r.templateName) {
+        console.log(`${r.templateName} [${r.ver}] Init Done.`)
+      }
       process.exit(0)
     }, 2000)
   })
@@ -51,21 +67,21 @@ commander.command('commentscan [option]')
   .description('scan ' + $.c.g('Function Comment JiaTui rules.'))
   .option('-c, --config <path>', 'defaults to ./commentConf.js')
   .action(async function (option, p) {
-    let spinner = new $.Spinner()
-    spinner.start('Scan files...')
+    spinnerHandler = new $.Spinner()
+    spinnerHandler.start('Scan files...')
 
     const childProcess = require('child_process')
     const worker = childProcess.fork(path.join(__dirname, '/worker_commentscan.js'))
     worker.on('message', m => {
       // $.log(m)
       if (m.type === 'end') {
-        spinner.stop()
+        spinnerHandler.stop()
         if (!m.totalErr) {
           console.log($.c.g('=== Your are Master of Notes! ==='))
         }
       }
       if (m.type === 'scanning') {
-        spinner.setShowTxt(m.msg)
+        spinnerHandler.setShowTxt(m.msg)
       }
     })
     // tools.commentscan.index(p.config)
@@ -76,8 +92,8 @@ commander.command('swaggerscan [option]')
   .option('-c, --config <path>', 'defaults to ./config.js')
   .action(async function (option, p) {
     // $.log('swagger', path.config)
-    let spinner = new $.Spinner()
-    spinner.start('Swagger scan...')
+    spinnerHandler = new $.Spinner()
+    spinnerHandler.start('Swagger scan...')
     let r
     if (path.config) {
       r = await tools.swaggerscan.index.scan(path.config)
@@ -85,7 +101,7 @@ commander.command('swaggerscan [option]')
       r = await tools.swaggerscan.index.scan()
     }
     setTimeout(function () {
-      spinner.stop()
+      spinnerHandler.stop()
       $.dir(r)
       console.log('Scan Done.')
       process.exit(0)
@@ -96,20 +112,20 @@ commander.command('wttr')
   .option('-c, --city [city]', 'defaults local')
   .action(async function (option, p) {
     // $.log(option.city)
-    let spinner = new $.Spinner()
-    spinner.start('Downloading...')
+    spinnerHandler = new $.Spinner()
+    spinnerHandler.start('Downloading...')
     let r = await tools.curl.index.wttr(option.city)
-    spinner.stop()
+    spinnerHandler.stop()
     process.stdout.write(r)
   })
 commander.command('coin')
   .description('cryptocurrencies exchange rates -c [coin name]')
   .option('-c, --coin [name]', 'defaults top 10')
   .action(async function (option, p) {
-    let spinner = new $.Spinner()
-    spinner.start('Downloading...')
+    spinnerHandler = new $.Spinner()
+    spinnerHandler.start('Downloading...')
     let r = await tools.curl.index.coin(option.coin)
-    spinner.stop()
+    spinnerHandler.stop()
     process.stdout.write(r)
   })
 commander.command('history')
@@ -147,7 +163,13 @@ commander.parse(process.argv)
 if (process.argv.length === 2) {
   console.log(`[${$.c.g(Pack.version)}] Sky framework: ${$.c.y('sky init')}`)
 }
+let errStackFn = e => {
+  if (spinnerHandler.stop) spinnerHandler.stop()
+  $.err(e.toString())
+}
+process.on('uncaughtException', errStackFn)
+process.on('unhandledRejection', errStackFn)
 /*
-let spinner = new $.Spinner('dots2')
-spinner.start()
+spinnerHandler = new $.Spinner('dots2')
+spinnerHandler.start()
 */
