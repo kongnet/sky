@@ -17,7 +17,7 @@ commander.command('init [option]')
   .alias('i')
   .description($.c.g('Init') + ' Sky Framework')
   .option('-n, --name <name>', 'defaults to ./output')
-  .option('-c, --create <file>', 'defaults path from ./config.js, defalut to ./output')
+  .option('-c, --create <file>', 'read config path from .js, defalut to ./output')
   .option('-f, --force', 'cover dir')
   .action(function (option, name) {
     // console.log(name.force)
