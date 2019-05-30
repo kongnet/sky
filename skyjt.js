@@ -95,8 +95,8 @@ commander.command('swaggerscan [option]')
     spinnerHandler = new $.Spinner()
     spinnerHandler.start('Swagger scan...')
     let r
-    if (path.config) {
-      r = await tools.swaggerscan.index.scan(path.config)
+    if (p.config) {
+      r = await tools.swaggerscan.index.scan(p.config)
     } else {
       r = await tools.swaggerscan.index.scan()
     }
