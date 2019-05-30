@@ -165,7 +165,7 @@ if (process.argv.length === 2) {
 }
 let errStackFn = e => {
   if (spinnerHandler.stop) spinnerHandler.stop()
-  $.err(e.toString())
+  $.err(e.toString(), e.stack)
 }
 process.on('uncaughtException', errStackFn)
 process.on('unhandledRejection', errStackFn)
