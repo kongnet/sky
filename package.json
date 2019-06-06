@@ -15,7 +15,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "patch": "git add . && git commit -m:pencil2: && npm version patch && npm publish ."
+    "patch": "git add . && git commit -m:pencil2: && npm version patch && npm publish .",
+    "bug":"git add . && git commit -m:bug: && npm version patch && npm publish ."
   },
   "bin": {
     "skyjt": "./skyjt.js"
