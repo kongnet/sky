@@ -1,23 +1,26 @@
 {
   "name": "skyjt",
-  "version": "0.9.14",
+  "version": "0.9.45",
   "description": "skyjt",
   "main": "skyjt.js",
   "dependencies": {
     "bluebird": "^3.5.4",
     "commander": "^2.20.0",
+    "j2dir": "^0.1.5",
     "j2sql": "^1.9.21",
-    "meeko": "^1.7.47",
+    "meeko": "^1.7.49",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "patch": "git add . && git commit -m:pencil2: && npm version patch && npm publish .",
+    "bug": "git add . && git commit -m:bug: && npm version patch && npm publish ."
   },
   "bin": {
     "skyjt": "./skyjt.js"
   },
   "author": "skykong",
-  "license": "ISC"
+  "license": "BSD"
 }
