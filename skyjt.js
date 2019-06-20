@@ -17,16 +17,15 @@ commander
     console.log('do init')
   })
 commander
-  .command('exportutils [option]')
-  .alias('exportutils')
+  .command('jtjs [option]')
+  .alias('jt')
   .description('Init JiatuiCommonJS')
   .option('-c, --config <path>', 'defaults to ./jt.js')
   .action(function(option, path) {
-    // console.log(option, path.config)
     if (path.config) {
-      tools.exportutils.index.writeFile(path.config)
+      tools.jtjs.index.writeFileSync(path.config)
     } else {
-      tools.dbscan.index.scan()
+      tools.jtjs.index.writeFileSync('')
     }
   })
 commander

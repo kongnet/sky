@@ -3,7 +3,7 @@ function cFn(fc, dimNum, bc, isUnderline) {
     bc ? bc + ';' : ''
   }${fc || ''}m`
 }
-export default {
+ module.exports = {
   s: {
     // 字符串
     toNumber:function (o) {
