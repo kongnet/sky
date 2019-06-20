@@ -20,8 +20,14 @@ commander
   .command('exportutils [option]')
   .alias('exportutils')
   .description('Init JiatuiCommonJS')
+  .option('-c, --config <path>', 'defaults to ./jt.js')
   .action(function(option, path) {
-    tools.exportutils.index.writeFile()
+    // console.log(option, path.config)
+    if (path.config) {
+      tools.exportutils.index.writeFile(path.config)
+    } else {
+      tools.dbscan.index.scan()
+    }
   })
 commander
   .command('dbscan [option]')
