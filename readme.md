@@ -1,9 +1,28 @@
 # skyjt
 ### JiaTui Front group flash tools
-* init|i                                  Init Sky Framework
-* dbscan|db [options] [option]            scan Mysql JiaTui rules Default: 127.0.0.1/root/123456
-* commentscan|comment [options] [option]  scan Function Comment JiaTui rules
-* swaggerscan|swagger [options] [option]  scan Swagger JiaTui rules
-* history                                 today history
-* get [options]                           Get url
-* post [options]                          Post url
+* init ，i            													        初始化全栈工程结构
+* dbscan，db								JiaTui 数据库扫描规则 Default: 127.0.0.1/root/123456
+
+* commentscan，comment								     加推前端函数注释扫描
+
+* swaggerscan，swagger  [options] [option]		加推swagger规范扫描
+
+* history                                 								      today history
+
+* get [options]                           							      skyjt get -h url -p param
+
+* post [options]                          						         skyjt post -h url -p param
+
+### Install node
+[Download URL ](https://nodejs.org/en/download/current/)
+
+### Install skyjt
+
+```js
+npm i -g skyjt
+```
+![comment](https://github.com/kongnet/sky/raw/master/screenShot/1.gif)
+
+```js
+skyjt init -n outputMP -t mp -f //在当前创建 outputMP目录 将 小程序模板 生成在其下，并强制覆盖 已有的文件
+```
