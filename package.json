@@ -8,11 +8,18 @@
     "commander": "^2.20.0",
     "j2dir": "^0.1.5",
     "j2sql": "^1.9.21",
-    "meeko": "^1.7.49",
+    "meeko": "*",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^6.0.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "patch": "git add . && git commit -m:pencil2: && npm version patch && npm publish .",
