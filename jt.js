@@ -1,9 +1,16 @@
-function cFn(fc, dimNum, bc, isUnderline) {
+(function (global, factory) {
+  // CommonJS、CMD规范检查
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+  // AMD规范检查
+  typeof define === 'function' && define.amd ? define(factory) : (global.Jtjs = factory());
+}(this, (function () { 'use strict';
+     function cFn(fc, dimNum, bc, isUnderline) {
   return `\x1b[0;${isUnderline ? '4;' : ''}${dimNum ? dimNum + ';' : ''}${
     bc ? bc + ';' : ''
   }${fc || ''}m`
 }
- module.exports = {
+
+    let Jtjs =  {
   s: {
     // 字符串
     toNumber:function (o) {
@@ -84,3 +91,5 @@ function cFn(fc, dimNum, bc, isUnderline) {
       y (s, bc, u) { return cFn(33, 1, bc, u) + s + cFn() } //警告
   }
 }
+    return Jtjs
+} )))
