@@ -8,7 +8,7 @@
     "commander": "^2.20.0",
     "j2dir": "^0.1.5",
     "j2sql": "^1.9.21",
-    "meeko": "*",
+    "meeko": "^1.7.66",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7"
   },
@@ -22,6 +22,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "eslintfix": "eslint ./jt.js --fix",
     "patch": "git add . && git commit -m:pencil2: && npm version patch && npm publish .",
     "bug": "git add . && git commit -m:bug: && npm version patch && npm publish ."
   },
