@@ -13,7 +13,8 @@
     "tools",
     "mochawesome-report",
     "output",
-    "mochawesome-reports"
+    "mochawesome-reports",
+    "jt.js"
   ],
   "watch": [],
   "verbose": false
