@@ -13,7 +13,6 @@
     "request-promise-native": "^1.0.7"
   },
   "devDependencies": {
-    "cz-emoji": "^1.1.2",
     "eslint": "^6.0.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.17.3",
@@ -34,7 +33,6 @@
   "license": "BSD",
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-emoji"
     }
   }
 }
