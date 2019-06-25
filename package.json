@@ -1,6 +1,6 @@
 {
   "name": "skyjt",
-  "version": "0.9.46",
+  "version": "0.9.49",
   "description": "skyjt",
   "main": "skyjt.js",
   "dependencies": {
@@ -22,6 +22,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "eslintfix": "eslint ./jt.js --fix",
     "patch": "git add . && git commit -m:pencil2: && npm version patch && npm publish .",
     "bug": "git add . && git commit -m:bug: && npm version patch && npm publish ."
   },
@@ -29,5 +30,8 @@
     "skyjt": "./skyjt.js"
   },
   "author": "skykong",
-  "license": "BSD"
+  "license": "BSD",
+  "config": {
+    "commitizen": {}
+  }
 }
