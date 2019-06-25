@@ -1,6 +1,6 @@
 {
   "name": "skyjt",
-  "version": "0.9.47",
+  "version": "0.9.48",
   "description": "skyjt",
   "main": "skyjt.js",
   "dependencies": {
@@ -32,7 +32,6 @@
   "author": "skykong",
   "license": "BSD",
   "config": {
-    "commitizen": {
-    }
+    "commitizen": {}
   }
 }
