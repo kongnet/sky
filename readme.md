@@ -1,6 +1,11 @@
 # skyjt
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 ### JiaTui Front group flash tools
 * init ，i            													        初始化全栈工程结构
+
+* jtjs ，jt            													        导出jt.js
+
 * dbscan，db								JiaTui 数据库扫描规则 Default: 127.0.0.1/root/123456
 
 * commentscan，comment								     加推前端函数注释扫描
