@@ -62,6 +62,17 @@ commander.command('init [option]')
       process.exit(0)
     }, 2000)
   })
+commander.command('jtjs [option]')
+  .alias('jt')
+  .description(`Init ${$.c.g('JiatuiCommonJS')}`)
+  .option('-c, --config <path>', 'defaults to ./jt.js')
+  .action(function (option, path) {
+    if (path.config) {
+      tools.jtjs.index.writeFile(path.config)
+    } else {
+      tools.jtjs.index.writeFile('')
+    }
+  })
 commander.command('dbscan [option]')
   .alias('db')
   .description('scan ' + $.c.g('Mysql JiaTui rules') + ' Default: 127.0.0.1/root/123456')
