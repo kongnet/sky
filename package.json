@@ -13,6 +13,7 @@
     "request-promise-native": "^1.0.7"
   },
   "devDependencies": {
+    "cz-jt": "^0.1.2",
     "eslint": "^6.0.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.17.3",
@@ -32,6 +33,8 @@
   "author": "skykong",
   "license": "BSD",
   "config": {
-    "commitizen": {}
+    "commitizen": {
+      "path": "./node_modules/cz-jt"
+    }
   }
 }
