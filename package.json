@@ -30,8 +30,12 @@
   "bin": {
     "skyjt": "./skyjt.js"
   },
-  "author": "skykong",
-  "license": "BSD",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kongnet/sky.git"
+  },
+  "author": "Kongnet <9601698@qq.com>",
+  "license": "BSD-2-Clause",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-jt"
