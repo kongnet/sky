@@ -1,5 +1,6 @@
 # skyjt
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![Downloads](https://img.shields.io/npm/dy/skyjt.svg?style=popout)](https://img.shields.io/npm/dy/skyjt.svg?style=popout)
 
 ### JiaTui Front group flash tools
 * init ，i            													        初始化全栈工程结构
