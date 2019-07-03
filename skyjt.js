@@ -67,6 +67,16 @@ commander.command('czjt')
   .action(function (option, path) {
     tools.czjt.index.install()
   })
+commander.command('ccjt')
+  .description(`Install ${$.c.g('Jiatui Cyclomatic complexity install')}`)
+  .action(function (option, path) {
+    tools.cc.index.install()
+  })
+commander.command('cc')
+  .description(`Scan ${$.c.g('JS Cyclomatic complexity')}`)
+  .action(function (option, path) {
+    tools.cc.index.scan()
+  })
 commander.command('jtjs [option]')
   .alias('jt')
   .description(`Init ${$.c.g('JiatuiCommonJS')}`)
