@@ -62,6 +62,30 @@ commander.command('init [option]')
       process.exit(0)
     }, 2000)
   })
+commander.command('lint [option]')
+  .alias('l')
+  .description('create/cover ' + $.c.g('Lint') + ' config in project root path')
+  .option('-t, --template <template>', 'vue|weex|mp|react ...')
+  .option('-f, --force', 'force cover file')
+  .action(async function (option, name) {
+    let r = {}
+    spinnerHandler = new $.Spinner()
+    spinnerHandler.start('Loading...')
+    let projectName = 'output'
+    if (name.config) {
+      const setting = require(path.join(__dirname, name.config))
+      r = await tools.lint.index.generate(projectName, name.force, name.template, setting)
+    } else {
+      r = await tools.lint.index.generate(projectName, name.force, name.template)
+    }
+    setTimeout(function () {
+      spinnerHandler.stop()
+      if (r.templateName) {
+        console.log(`${r.templateName} [${r.ver}] Generate Done.`)
+      }
+      process.exit(0)
+    }, 2000)
+  })
 commander.command('czjt')
   .description(`Install ${$.c.g('Jiatui commitizen')}`)
   .action(function (option, path) {
