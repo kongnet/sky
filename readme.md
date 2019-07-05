@@ -32,3 +32,9 @@ npm i -g skyjt
 ```js
 skyjt init -n outputMP -t mp -f //在当前创建 outputMP目录 将 小程序模板 生成在其下，并强制覆盖 已有的文件
 ```
+
+
+```js
+skyjt init // 输入项目名称(默认output) 可选择增加 stat-统计，tools-工具包 模块 来创建项目
+```
+![comment](https://raw.githubusercontent.com/soekchl/sky/master/screenShot/skyjt_init_model.gif)
