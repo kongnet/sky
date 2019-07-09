@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 let commander = require('commander')
 let $ = require('meeko')
+global.$ = $
 let Pack = require('./package.json')
 let path = require('path')
 const req = require('request-promise-native')
