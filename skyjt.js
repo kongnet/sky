@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+global.Promise = require('bluebird')
 let commander = require('commander')
 let $ = require('meeko')
 global.$ = $
