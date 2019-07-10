@@ -7,6 +7,7 @@ let Pack = require('./package.json')
 let path = require('path')
 let StatOutFile = require('skybase-stat/outFile.js')
 let ToolsOutFile = require('skybase-tools/outFile.js')
+let TreeOutFile = require('skybase-tree/outFile.js')
 const req = require('request-promise-native')
 // 版本号检测
 async function checkVersion () {
@@ -54,7 +55,9 @@ commander.command('init [option]')
     if ( await checkAddModel('add tools model: ', ['Y','N']) === 'Y') { // add tools model: (Y|N)
       cfg.initModelsMap.tools = ToolsOutFile // 增加各种工具模块
     }
-    
+    if ( await checkAddModel('add tree model: ', ['Y','N']) === 'Y') { // add tree model: (Y|N)
+      cfg.initModelsMap.tree = TreeOutFile // 增加 树操作CURD
+    }
 
     if (cfg.config) {
       const setting = require(path.join(__dirname, cfg.config))

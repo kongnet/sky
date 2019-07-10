@@ -12,8 +12,10 @@
     "readline": "^1.3.0",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7",
+    "skybase": "*",
     "skybase-stat": "*",
     "skybase-tools": "*",
+    "skybase-tree": "*",
     "yarn": "^1.16.0"
   },
   "devDependencies": {
