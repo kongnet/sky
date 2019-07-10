@@ -2,6 +2,7 @@
 const readline = require('readline')
 let commander = require('commander')
 let $ = require('meeko')
+global.$ = $
 let Pack = require('./package.json')
 let path = require('path')
 let StatOutFile = require('skybase-stat/outFile.js')
