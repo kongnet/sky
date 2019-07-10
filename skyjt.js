@@ -78,6 +78,11 @@ commander.command('cc')
   .action(function (option, path) {
     tools.cc.index.scan()
   })
+commander.command('answer')
+  .description(`Answer your question!`)
+  .action(function (option, path) {
+    tools.answer.index.answer()
+  })
 commander.command('jtjs [option]')
   .alias('jt')
   .description(`Init ${$.c.g('JiatuiCommonJS')}`)
