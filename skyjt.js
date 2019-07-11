@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const readline = require('readline')
+global.Promise = require('bluebird')
 let commander = require('commander')
 let $ = require('meeko')
 global.$ = $
@@ -91,6 +92,11 @@ commander.command('cc')
   .description(`Scan ${$.c.g('JS Cyclomatic complexity')}`)
   .action(function (option, path) {
     tools.cc.index.scan()
+  })
+commander.command('answer')
+  .description(`Answer your question!`)
+  .action(function (option, path) {
+    tools.answer.index.answer()
   })
 commander.command('jtjs [option]')
   .alias('jt')
