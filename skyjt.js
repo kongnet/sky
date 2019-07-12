@@ -5,13 +5,9 @@ let $ = require('meeko')
 global.$ = $
 let Pack = require('./package.json')
 let path = require('path')
-let StatOutFile = require('skybase-stat/outFile.js')
-let ToolsOutFile = require('skybase-tools/outFile.js')
-let TreeOutFile = require('skybase-tree/outFile.js')
 const req = require('request-promise-native')
-const inquirer = require('inquirer')
 // 版本号检测
-async function checkVersion() {
+async function checkVersion () {
   let r = await req({
     method: 'get',
     uri: 'https://raw.githubusercontent.com/kongnet/sky/master/package.json',
@@ -29,7 +25,7 @@ checkVersion()
 let tools = $.requireAll(path.join(__dirname, '.', 'lib'))
 let spinnerHandler = {}
 // 输出字符键盘1
-function keyboard() {
+function keyboard () {
   console.log((_ => [..."`1234567890-=~~QWERTYUIOP[]\\~ASDFGHJKL;'~~ZXCVBNM,./~"].map(x => (o += `/${b = '_'.repeat(w = x < y ? 2 : ' 667699'[x = ['BS', 'TAB', 'CAPS', 'ENTER'][p++] || 'SHIFT', p])}\\|`, m += y + (x + '    ').slice(0, w) + y + y, n += y + b + y + y, l += ' __' + b)[73] && (k.push(l, m, n, o), l = '', m = n = o = y), m = n = o = y = '|', p = l = k = []) && k.join`
 `)())
 }
@@ -47,21 +43,6 @@ commander.command('init [option]')
   .option('-f, --force', 'force cover dir')
   .action(async function (option, cfg) {
     let r = {}
-    cfg.initModelsMap = {} // map modelName ---> modelFunc
-
-    let modelsMap = {
-      'stat': StatOutFile,// 增加统计模块
-      'tools': ToolsOutFile,// 增加各种工具模块
-      'tree': TreeOutFile // 增加 树操作CURD
-    }
-    let choices = []
-    for (let v in modelsMap) {
-      choices.push({ name: v, checked: true })
-    }
-    cfg.name = await getQuestion('project name:', { type: 'input', def: 'sky-test' })
-    let addModelsList = await getQuestion('select add model:', { type: 'checkbox', choices })
-    addModelsList.map((v) => { cfg.initModelsMap[v] = modelsMap[v] })
-
     if (cfg.config) {
       const setting = require(path.join(__dirname, cfg.config))
       r = await tools.init.index.init(cfg, setting)
@@ -242,27 +223,3 @@ process.on('unhandledRejection', errStackFn)
 spinnerHandler = new $.Spinner('dots2')
 spinnerHandler.start()
 */
-
-
-// 获取问题 return answer
-async function getQuestion(question, { type = 'confirm', def = 'output', choices = [] }) {
-  return new Promise(function (resolve) {
-    try {
-      let prompt = inquirer.createPromptModule()
-      let questions = [
-        {
-          type,
-          name: 'step',
-          default: def,
-          message: $.c.c(question),
-          choices
-        }]
-      prompt(questions).then(answers => {
-        resolve(answers['step'])
-      })
-    } catch (e) {
-      console.error(e.stack)
-      resolve(false)
-    }
-  })
-}
