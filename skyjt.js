@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-const readline = require('readline')
 global.Promise = require('bluebird')
 let commander = require('commander')
 let $ = require('meeko')
@@ -10,8 +9,9 @@ let StatOutFile = require('skybase-stat/outFile.js')
 let ToolsOutFile = require('skybase-tools/outFile.js')
 let TreeOutFile = require('skybase-tree/outFile.js')
 const req = require('request-promise-native')
+const inquirer = require('inquirer')
 // 版本号检测
-async function checkVersion () {
+async function checkVersion() {
   let r = await req({
     method: 'get',
     uri: 'https://raw.githubusercontent.com/kongnet/sky/master/package.json',
@@ -29,7 +29,7 @@ checkVersion()
 let tools = $.requireAll(path.join(__dirname, '.', 'lib'))
 let spinnerHandler = {}
 // 输出字符键盘1
-function keyboard () {
+function keyboard() {
   console.log((_ => [..."`1234567890-=~~QWERTYUIOP[]\\~ASDFGHJKL;'~~ZXCVBNM,./~"].map(x => (o += `/${b = '_'.repeat(w = x < y ? 2 : ' 667699'[x = ['BS', 'TAB', 'CAPS', 'ENTER'][p++] || 'SHIFT', p])}\\|`, m += y + (x + '    ').slice(0, w) + y + y, n += y + b + y + y, l += ' __' + b)[73] && (k.push(l, m, n, o), l = '', m = n = o = y), m = n = o = y = '|', p = l = k = []) && k.join`
 `)())
 }
@@ -49,16 +49,18 @@ commander.command('init [option]')
     let r = {}
     cfg.initModelsMap = {} // map modelName ---> modelFunc
 
-    cfg.name = await getQuestion('project name: (output) ') || 'output'
-    if ( await checkAddModel('add stat model: ', ['Y','N']) === 'Y') { // add stat model: (Y|N)
-      cfg.initModelsMap.stat = StatOutFile // 增加统计模块
+    let modelsMap = {
+      'stat': StatOutFile,// 增加统计模块
+      'tools': ToolsOutFile,// 增加各种工具模块
+      'tree': TreeOutFile // 增加 树操作CURD
     }
-    if ( await checkAddModel('add tools model: ', ['Y','N']) === 'Y') { // add tools model: (Y|N)
-      cfg.initModelsMap.tools = ToolsOutFile // 增加各种工具模块
+    let choices = []
+    for (let v in modelsMap) {
+      choices.push({ name: v, checked: true })
     }
-    if ( await checkAddModel('add tree model: ', ['Y','N']) === 'Y') { // add tree model: (Y|N)
-      cfg.initModelsMap.tree = TreeOutFile // 增加 树操作CURD
-    }
+    cfg.name = await getQuestion('project name:', { type: 'input', def: 'sky-test' })
+    let addModelsList = await getQuestion('select add model:', { type: 'checkbox', choices })
+    addModelsList.map((v) => { cfg.initModelsMap[v] = modelsMap[v] })
 
     if (cfg.config) {
       const setting = require(path.join(__dirname, cfg.config))
@@ -74,6 +76,30 @@ commander.command('init [option]')
       spinnerHandler.stop()
       if (r.templateName) {
         console.log(`${r.templateName} [${r.ver}] Init Done.`)
+      }
+      process.exit(0)
+    }, 1000)
+  })
+commander.command('lint [option]')
+  .alias('l')
+  .description('create/cover ' + $.c.g('Lint') + ' config in project root path')
+  .option('-t, --template <template>', 'vue|weex|mp|react ...')
+  .option('-f, --force', 'force cover file')
+  .action(async function (option, name) {
+    let r = {}
+    spinnerHandler = new $.Spinner()
+    spinnerHandler.start('Loading...')
+    let projectName = 'output'
+    if (name.config) {
+      const setting = require(path.join(__dirname, name.config))
+      r = await tools.lint.index.generate(projectName, name.force, name.template, setting)
+    } else {
+      r = await tools.lint.index.generate(projectName, name.force, name.template)
+    }
+    setTimeout(function () {
+      spinnerHandler.stop()
+      if (r.templateName) {
+        console.log(`${r.templateName} [${r.ver}] Generate Done.`)
       }
       process.exit(0)
     }, 2000)
@@ -241,41 +267,26 @@ spinnerHandler = new $.Spinner('dots2')
 spinnerHandler.start()
 */
 
-async function checkAddModel(question, answerList = []) {
-  let newQ = `${question}(${answerList.join('|')}) `
-  for( ;true ; ) {
-    let answer = await getQuestion(newQ)
-    if (answerList.length > 0) {
-      for(let i = 0 ; i < answerList.length;i++) {
-        if (answerList[i].toLowerCase() == answer.toLowerCase()) {
-          return answerList[i]
-        }
-      }
-      console.error(`Invalid ${question}${answer}`)
-      continue
-    }
-    break
-  }
-  return answer
-}
 
 // 获取问题 return answer
-async function getQuestion (question) {
+async function getQuestion(question, { type = 'confirm', def = 'output', choices = [] }) {
   return new Promise(function (resolve) {
     try {
-      let answer = ''
-      let rl = readline.createInterface({
-          input: process.stdin,
-          output: process.stdout
+      let prompt = inquirer.createPromptModule()
+      let questions = [
+        {
+          type,
+          name: 'step',
+          default: def,
+          message: $.c.c(question),
+          choices
+        }]
+      prompt(questions).then(answers => {
+        resolve(answers['step'])
       })
-      rl.question(question, function (a) {
-          answer = a
-          rl.close()
-          resolve(answer)
-      });
     } catch (e) {
       console.error(e.stack)
-      resolve('')
+      resolve(false)
     }
   })
 }
