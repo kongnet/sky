@@ -6,6 +6,7 @@
   "dependencies": {
     "bluebird": "^3.5.4",
     "commander": "^2.20.0",
+    "inquirer": "^6.5.0",
     "j2dir": "^0.1.5",
     "j2sql": "^1.9.25",
     "meeko": "^1.7.80",
