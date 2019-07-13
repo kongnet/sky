@@ -1,13 +1,13 @@
 {
   "name": "skyjt",
-  "version": "0.9.67",
+  "version": "0.9.71",
   "description": "skyjt",
   "main": "skyjt.js",
   "dependencies": {
     "bluebird": "^3.5.4",
     "commander": "^2.20.0",
     "inquirer": "^6.5.0",
-    "j2dir": "^0.1.5",
+    "j2dir": "^0.1.8",
     "j2sql": "^1.9.25",
     "meeko": "^1.7.80",
     "readline": "^1.3.0",
