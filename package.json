@@ -35,7 +35,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "eslintfix": "eslint ./jt.js --fix",
-    "cz": "git add . && git status && git cz && node .\node_modules\npm-publish-bin && npm version patch && npm publish .",
+    "cz": "git add . && git status && git cz && npm-publish-bin && npm version patch && npm publish .",
     "patch": "git add . && git commit -m:pencil2: && npm version patch && npm publish .",
     "bug": "git add . && git commit -m:bug: && npm version patch && npm publish ."
   },
