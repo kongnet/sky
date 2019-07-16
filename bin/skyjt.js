@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-global.Promise = require('bluebird')
+// global.Promise = require('bluebird')
 let commander = require('commander')
 let $ = require('meeko')
 global.$ = $
-let Pack = require('./package.json')
+let Pack = require('../package.json')
 let path = require('path')
 const req = require('request-promise-native')
 // 版本号检测
@@ -22,7 +22,7 @@ async function checkVersion () {
   }
 }
 checkVersion()
-let tools = $.requireAll(path.join(__dirname, '.', 'lib'))
+let tools = $.requireAll(path.join(__dirname, '..', 'lib'))
 let spinnerHandler = {}
 // 输出字符键盘1
 function keyboard () {
