@@ -1698,7 +1698,7 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
-j2dir@^0.1.8:
+j2dir@^0.1.9:
   version "0.1.9"
   resolved "https://registry.yarnpkg.com/j2dir/-/j2dir-0.1.9.tgz#d81dcecd12327ab575367534bc27d40dd915d63e"
   integrity sha512-Yt13E85HFFdZ1fV6TT/eJHTcmziIodUD2Dlh4IgbmswTTj+Du1zYz4nzTpWsLIFzrwYhncFNGuLCdktTFJlfhg==

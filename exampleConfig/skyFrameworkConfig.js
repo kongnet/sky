@@ -17,9 +17,10 @@ const config = {
   tools: {},
   sql: {},
   'README.md': null,
-  '.gitignore': null,
+  '.gitignore': ['.gitignore.tpl', null, 'Git忽略文件列表'],
+  '.editorconfig': ['.editorconfig.tpl', null, 'editorconfig'],
+  '.istanbul.yml': ['.istanbul.yml.tpl', null, 'istanbul'],
   'sonar-project.properties': null,
-  'nodemon.json': null,
   'index.js': null,
   '.gitlab-ci.yml': null,
   www: {
