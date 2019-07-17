@@ -1,14 +1,10 @@
 #!/usr/bin/env node
-const readline = require('readline')
-global.Promise = require('bluebird')
+// global.Promise = require('bluebird')
 let commander = require('commander')
 let $ = require('meeko')
 global.$ = $
-let Pack = require('./package.json')
+let Pack = require('../package.json')
 let path = require('path')
-let StatOutFile = require('skybase-stat/outFile.js')
-let ToolsOutFile = require('skybase-tools/outFile.js')
-let TreeOutFile = require('skybase-tree/outFile.js')
 const req = require('request-promise-native')
 // 版本号检测
 async function checkVersion () {
@@ -26,7 +22,7 @@ async function checkVersion () {
   }
 }
 checkVersion()
-let tools = $.requireAll(path.join(__dirname, '.', 'lib'))
+let tools = $.requireAll(path.join(__dirname, '..', 'lib'))
 let spinnerHandler = {}
 // 输出字符键盘1
 function keyboard () {
@@ -47,19 +43,6 @@ commander.command('init [option]')
   .option('-f, --force', 'force cover dir')
   .action(async function (option, cfg) {
     let r = {}
-    cfg.initModelsMap = {} // map modelName ---> modelFunc
-
-    cfg.name = await getQuestion('project name: (output) ') || 'output'
-    if ( await checkAddModel('add stat model: ', ['Y','N']) === 'Y') { // add stat model: (Y|N)
-      cfg.initModelsMap.stat = StatOutFile // 增加统计模块
-    }
-    if ( await checkAddModel('add tools model: ', ['Y','N']) === 'Y') { // add tools model: (Y|N)
-      cfg.initModelsMap.tools = ToolsOutFile // 增加各种工具模块
-    }
-    if ( await checkAddModel('add tree model: ', ['Y','N']) === 'Y') { // add tree model: (Y|N)
-      cfg.initModelsMap.tree = TreeOutFile // 增加 树操作CURD
-    }
-
     if (cfg.config) {
       const setting = require(path.join(__dirname, cfg.config))
       r = await tools.init.index.init(cfg, setting)
@@ -76,7 +59,7 @@ commander.command('init [option]')
         console.log(`${r.templateName} [${r.ver}] Init Done.`)
       }
       process.exit(0)
-    }, 2000)
+    }, 1000)
   })
 commander.command('lint [option]')
   .alias('l')
@@ -264,42 +247,3 @@ process.on('unhandledRejection', errStackFn)
 spinnerHandler = new $.Spinner('dots2')
 spinnerHandler.start()
 */
-
-async function checkAddModel(question, answerList = []) {
-  let newQ = `${question}(${answerList.join('|')}) `
-  for( ;true ; ) {
-    let answer = await getQuestion(newQ)
-    if (answerList.length > 0) {
-      for(let i = 0 ; i < answerList.length;i++) {
-        if (answerList[i].toLowerCase() == answer.toLowerCase()) {
-          return answerList[i]
-        }
-      }
-      console.error(`Invalid ${question}${answer}`)
-      continue
-    }
-    break
-  }
-  return answer
-}
-
-// 获取问题 return answer
-async function getQuestion (question) {
-  return new Promise(function (resolve) {
-    try {
-      let answer = ''
-      let rl = readline.createInterface({
-          input: process.stdin,
-          output: process.stdout
-      })
-      rl.question(question, function (a) {
-          answer = a
-          rl.close()
-          resolve(answer)
-      });
-    } catch (e) {
-      console.error(e.stack)
-      resolve('')
-    }
-  })
-}
