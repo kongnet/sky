@@ -1,7 +1,7 @@
 const config = {
   'ver': '0.1.0',
   '.editorconfig': null,
-  '.eslintignore': null,
+  //'.eslintignore': null,
   '.eslintrc.js': null,
   '.prettierignore': null,
   '.prettierrc': null,
