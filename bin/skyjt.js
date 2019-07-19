@@ -143,7 +143,7 @@ commander.command('commentscan [option]')
     spinnerHandler.start('Scan files...')
 
     const childProcess = require('child_process')
-    const worker = childProcess.fork(path.join(__dirname, '/worker_commentscan.js'))
+    const worker = childProcess.fork(path.join(__dirname, 'worker_commentscan.js'))
     worker.on('message', m => {
       // $.log(m)
       if (m.type === 'end') {
@@ -247,7 +247,7 @@ if (process.argv.length === 2) {
 let errStackFn = e => {
   if (spinnerHandler.stop) spinnerHandler.stop()
   let str = e.toString()
-  if (!str.includes('TIMEDOUT')) {
+  if (!str.includes('TIMEDOUT') && !str.includes('ENOTFOUND')) {
     $.err(e.toString())
   }
 }
