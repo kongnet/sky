@@ -1,6 +1,7 @@
 # skyjt
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Downloads](https://img.shields.io/npm/dy/skyjt.svg?style=popout)](https://img.shields.io/npm/dy/skyjt.svg?style=popout)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkongnet%2Fsky.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkongnet%2Fsky?ref=badge_shield)
 
 ### JiaTui Front group flash tools
 * init ，i            													        初始化全栈工程结构
@@ -38,3 +39,6 @@ skyjt init -n outputMP -t mp -f //在当前创建 outputMP目录 将 小程序�
 ```js
 skyjt init // 输入项目名称(默认output) 可选择增加 stat-统计，tools-工具包 模块 来创建项目
 ```
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkongnet%2Fsky.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkongnet%2Fsky?ref=badge_large)
