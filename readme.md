@@ -16,6 +16,8 @@
 
 * history                                 								      today history
 
+* dict [word]                           							      skyjt dict sky 英文-中文字典查询
+
 * get [options]                           							      skyjt get -h url -p param
 
 * post [options]                          						         skyjt post -h url -p param
