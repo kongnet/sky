@@ -13,8 +13,10 @@ childProcess.fork(path.join(__dirname, 'check_version.js'))
 
 // 输出字符键盘1
 function keyboard () {
+  /*eslint-disable */
   console.log((_ => [..."`1234567890-=~~QWERTYUIOP[]\\~ASDFGHJKL;'~~ZXCVBNM,./~"].map(x => (o += `/${b = '_'.repeat(w = x < y ? 2 : ' 667699'[x = ['BS', 'TAB', 'CAPS', 'ENTER'][p++] || 'SHIFT', p])}\\|`, m += y + (x + '    ').slice(0, w) + y + y, n += y + b + y + y, l += ' __' + b)[73] && (k.push(l, m, n, o), l = '', m = n = o = y), m = n = o = y = '|', p = l = k = []) && k.join`
 `)())
+/*eslint-ensable */
 }
 commander
   .usage('[command] [options] <file ...>')
@@ -89,7 +91,7 @@ commander.command('cc')
     tools.cc.index.scan(option.all)
   })
 commander.command('answer')
-  .description(`Answer your question!`)
+  .description('Answer your question!')
   .action(function (option, path) {
     tools.answer.index.answer()
   })
@@ -176,6 +178,14 @@ commander.command('wttr')
     spinnerHandler.stop()
     process.stdout.write(r)
   })
+  commander.command('dict')
+  .description(`en-cn ${$.c.g('Dict')}. skyjt dict [word]`)
+  .action(async function (...p) {
+    if($.tools.isString(p[0])) {
+    let r = await tools.curl.index.dict(p[0])
+    //process.stdout.write(r)
+    }
+  })
 commander.command('coin')
   .description('cryptocurrencies exchange rates -c [coin name]')
   .option('-c, --coin [name]', 'defaults top 10')
@@ -231,7 +241,7 @@ if (process.argv.length === 2) {
   console.log(`[${$.c.g(Pack.version)}] Sky framework: ${$.c.y('sky init')}`)
 }
 let errStackFn = e => {
-  if (spinnerHandler.stop) spinnerHandler.stop()
+  if (spinnerHandler.stop) { spinnerHandler.stop() }
   let str = e.toString()
   if (!str.includes('TIMEDOUT') && !str.includes('ENOTFOUND')) {
     $.err(e.toString())
@@ -239,6 +249,7 @@ let errStackFn = e => {
 }
 process.on('uncaughtException', errStackFn)
 process.on('unhandledRejection', errStackFn)
+
 /*
 spinnerHandler = new $.Spinner('dots2')
 spinnerHandler.start()
