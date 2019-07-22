@@ -134,6 +134,12 @@ commander.command('gitstat')
   .action(function (option, p) {
     tools.gitstat.index.scan()
   })
+commander.command('capi')
+  .description('create front Api files automatically')
+  .option('-c, --config <path>', 'defaults to ./capiConf.js')
+  .action(function () {
+    tools.capi.index.main()
+  })
 commander.command('commentscan [option]')
   .alias('comment')
   .description('scan ' + $.c.g('Function Comment JiaTui rules.'))
