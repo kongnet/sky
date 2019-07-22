@@ -1,33 +1,22 @@
 #!/usr/bin/env node
 // global.Promise = require('bluebird')
-let commander = require('commander')
 let $ = require('meeko')
 global.$ = $
+let commander = require('commander')
 let Pack = require('../package.json')
 let path = require('path')
-const req = require('request-promise-native')
-// 版本号检测
-async function checkVersion () {
-  let r = await req({
-    method: 'get',
-    uri: 'https://raw.githubusercontent.com/kongnet/sky/master/package.json',
-    timeout: 2000
-  })
-  let verLocal = Pack.version.split('.')
-  let s1 = verLocal.reduce((x, y, idx) => (+x) * (10 ** (4 - idx)) + (+y) * (10 ** (3 - idx)))
-  let ver = JSON.parse(r.replaceAll('\n', '')).version.split('.')
-  let s2 = ver.reduce((x, y, idx) => (+x) * (10 ** (4 - idx)) + (+y) * (10 ** (3 - idx)))
-  if (s2 > s1) {
-    console.log('新版本发现', verLocal.join('.'), '=>', $.c.m(ver.join('.')), $.c.c(' npm i -g skyjt '))
-  }
-}
-checkVersion()
 let tools = $.requireAll(path.join(__dirname, '..', 'lib'))
 let spinnerHandler = {}
+const childProcess = require('child_process')
+
+childProcess.fork(path.join(__dirname, 'check_version.js'))
+
 // 输出字符键盘1
 function keyboard () {
+  /*eslint-disable */
   console.log((_ => [..."`1234567890-=~~QWERTYUIOP[]\\~ASDFGHJKL;'~~ZXCVBNM,./~"].map(x => (o += `/${b = '_'.repeat(w = x < y ? 2 : ' 667699'[x = ['BS', 'TAB', 'CAPS', 'ENTER'][p++] || 'SHIFT', p])}\\|`, m += y + (x + '    ').slice(0, w) + y + y, n += y + b + y + y, l += ' __' + b)[73] && (k.push(l, m, n, o), l = '', m = n = o = y), m = n = o = y = '|', p = l = k = []) && k.join`
 `)())
+/*eslint-ensable */
 }
 commander
   .usage('[command] [options] <file ...>')
@@ -101,8 +90,14 @@ commander.command('cc')
   .action(function (option, path) {
     tools.cc.index.scan(option.all)
   })
+  commander.command('ccc')
+  .description(`Scan ${$.c.g('JS Front Check.')}`)
+  .option('-f, --fix', 'fix problem...')
+  .action(function (option, path) {
+    tools.cc.index.runJtFrontCheck(option.fix)
+  })
 commander.command('answer')
-  .description(`Answer your question!`)
+  .description('Answer your question!')
   .action(function (option, path) {
     tools.answer.index.answer()
   })
@@ -148,8 +143,7 @@ commander.command('commentscan [option]')
     spinnerHandler = new $.Spinner()
     spinnerHandler.start('Scan files...')
 
-    const childProcess = require('child_process')
-    const worker = childProcess.fork(path.join(__dirname, '/worker_commentscan.js'))
+    const worker = childProcess.fork(path.join(__dirname, 'worker_commentscan.js'))
     worker.on('message', m => {
       // $.log(m)
       if (m.type === 'end') {
@@ -196,6 +190,14 @@ commander.command('wttr')
     spinnerHandler.stop()
     process.stdout.write(r)
   })
+  commander.command('dict')
+  .description(`en-cn ${$.c.g('Dict')}. skyjt dict [word]`)
+  .action(async function (...p) {
+    if($.tools.isString(p[0])) {
+    let r = await tools.curl.index.dict(p[0])
+    //process.stdout.write(r)
+    }
+  })
 commander.command('coin')
   .description('cryptocurrencies exchange rates -c [coin name]')
   .option('-c, --coin [name]', 'defaults top 10')
@@ -239,17 +241,27 @@ commander.command('post')
 commander.parse(process.argv)
 
 if (process.argv.length === 2) {
+  const CFonts = require('cfonts')
+
+  CFonts.say('SKYJT', {
+    font: 'chrome',
+    align: 'left',
+    colors: ['#0ff', 'green', '#ff0'],
+    space: false
+  })
+
   console.log(`[${$.c.g(Pack.version)}] Sky framework: ${$.c.y('sky init')}`)
 }
 let errStackFn = e => {
-  if (spinnerHandler.stop) spinnerHandler.stop()
+  if (spinnerHandler.stop) { spinnerHandler.stop() }
   let str = e.toString()
-  if (!str.includes('TIMEDOUT')) {
+  if (!str.includes('TIMEDOUT') && !str.includes('ENOTFOUND')) {
     $.err(e.toString())
   }
 }
 process.on('uncaughtException', errStackFn)
 process.on('unhandledRejection', errStackFn)
+
 /*
 spinnerHandler = new $.Spinner('dots2')
 spinnerHandler.start()

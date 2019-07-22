@@ -1,5 +1,6 @@
-node_modules/
-/coverage
+.vscode
+node_modules
+coverage
 /output
 /*.log
 /test*.*
@@ -7,3 +8,4 @@ package-lock.json
 .scannerwork
 .idea
 jt.js
+jtFrontCheck.html

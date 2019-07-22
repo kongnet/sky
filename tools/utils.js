@@ -4,8 +4,3 @@
  * Name: utils
  * Desc: 工具方法
  */
-const path = require('path')
-
-module.exports = {
-  resolvePath
-}
