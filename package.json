@@ -5,7 +5,7 @@
   "main": "skyjt.js",
   "dependencies": {
     "babel-eslint": "^10.0.2",
-    "cc-jt": "^0.1.12",
+    "cc-jt": "^0.1.15",
     "cfonts": "^2.4.3",
     "cheerio": "^1.0.0-rc.3",
     "commander": "^2.20.0",
