@@ -90,7 +90,12 @@ commander.command('cc')
   .action(function (option, path) {
     tools.cc.index.scan(option.all)
   })
-  commander.command('ccc')
+commander.command('ecc')
+  .description(`Scan ${$.c.g('JS Front Dimensions Check.')}`)
+  .action(function (option, path) {
+    tools.cc.index.runJtFrontEasyCheck()
+  })
+commander.command('ccc')
   .description(`Scan ${$.c.g('JS Front Check.')}`)
   .option('-f, --fix', 'fix problem...')
   .action(function (option, path) {
