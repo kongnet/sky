@@ -7,7 +7,7 @@ async function checkVersion () {
   let r = await req({
     method: 'get',
     uri: 'https://raw.githubusercontent.com/kongnet/sky/master/package.json',
-    timeout: 2000
+    timeout: 1000
   })
   let verLocal = Pack.version.split('.')
   let s1 = verLocal.reduce((x, y, idx) => +x * 10 ** (4 - idx) + +y * 10 ** (3 - idx))
