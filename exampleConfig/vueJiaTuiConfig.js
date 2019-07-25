@@ -1,7 +1,45 @@
+/*
+├── build // 项目构建配置
+│ ├── webpack.base.config.js // webpack 基础配置
+│ ├── webpack.dev.config.js // 本地开发环境配置
+│ ├── webpack.pre.config.js // pre 环境配置
+│ ├── webpack.prod.config.js // 测试(test|checkout)环境配置
+│ └── webpack.test.config.js // 生产环境配置
+├── cli // 命令工具
+├── config // 环境变量配置
+├── dist // 构建后文件
+├── docs // 自动生成文档
+├── src
+│ ├── api // 请求接口
+│ │ ├── api.js // 所有接口汇总输出文件
+│ │ ├── commons.js // 通用 api(如获取用户信息，发验证码等与模块无关接口)
+│ │ └── toAxios.js // 基于 axios 封装的请求方法
+│ ├── assets // 静态资源
+│ │ ├── images
+│ │ ├── less
+│ │ └── svg
+│ ├── components // 组件
+│ │ ├── commons // 通用组件
+│ │ └── layout // 布局组件
+│ ├── directive // 指令
+│ ├── mock // mock数据
+│ ├── router // 路由
+│ ├── store // vuex
+│ ├── styles // 样式
+│ ├── tools // 工具函数集合
+│ ├── views // 视图
+│ ├── app.js // 入口文件
+│ ├── App.vue
+│ └── index.html
+├── jsconfig.json
+├── package.json
+├── README.md
+*/
+// TODO : 还未完成
 const config = {
   ver: '0.1.0',
-  config: {
-    'index.js': null,
+  build: {
+    'webpack.base.config.js': [null, null, 'webpack 基础配置'],
     'config.default.js': null,
     'config.dev.js': null,
     'config.test.js': null,
@@ -17,10 +55,9 @@ const config = {
   tools: {},
   sql: {},
   'README.md': null,
-  '.gitignore': ['.gitignore.tpl', null, 'Git忽略文件列表'],
-  '.editorconfig': ['.editorconfig.tpl', null, 'editorconfig'],
-  '.istanbul.yml': ['.istanbul.yml.tpl', null, 'istanbul'],
+  '.gitignore': null,
   'sonar-project.properties': null,
+  'nodemon.json': null,
   'index.js': null,
   '.gitlab-ci.yml': null,
   www: {

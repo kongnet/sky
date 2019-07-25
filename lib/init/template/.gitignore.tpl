@@ -1,11 +1,10 @@
-.vscode
 node_modules
 coverage
-/output
+out
+output
 /*.log
 /test*.*
 package-lock.json
 .scannerwork
-.idea
-jt.js
-jtFrontCheck.html
+.nyc_output
+mochawesome-report

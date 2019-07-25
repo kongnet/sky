@@ -1,7 +1,7 @@
 const config = {
   'ver': '0.1.0',
   '.editorconfig': null,
-  '.eslintignore': null,
+  // '.eslintignore': null,
   '.eslintrc.js': null,
   '.prettierignore': null,
   '.prettierrc': null,
@@ -24,19 +24,25 @@ const config = {
       ]
     },
     'devDependencies': {
+
       /** eslint */
+
       'eslint': '^4.19.1',
       'eslint-friendly-formatter': '^3.0.0',
       'eslint-loader': '^1.7.1',
       'eslint-plugin-html': '^6.0.0',
       'eslint-plugin-vue': '^4.7.1',
+
       /** stylelint */
+
       'stylelint': '^10.1.0',
       'stylelint-config-prettier': '^5.2.0',
       'stylelint-config-rational-order': '^0.1.2',
       'stylelint-declaration-block-no-ignored-properties': '^2.1.0',
       'stylelint-order': '^3.0.0',
+
       /** husky */
+
       'husky': '^2.2.0',
       'lint-staged': '^8.2.1'
     },
