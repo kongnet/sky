@@ -1,11 +1,11 @@
 {
   "name": "skyjt",
-  "version": "0.9.92",
+  "version": "0.9.93",
   "description": "skyjt",
   "main": "skyjt.js",
   "dependencies": {
     "babel-eslint": "^10.0.2",
-    "cc-jt": "^0.1.24",
+    "cc-jt": "^0.1.25",
     "cfonts": "^2.4.3",
     "cheerio": "^1.0.0-rc.3",
     "commander": "^2.20.0",
