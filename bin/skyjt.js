@@ -95,6 +95,11 @@ commander.command('ecc')
   .action(function (option, path) {
     tools.cc.index.runJtFrontEasyCheck()
   })
+  commander.command('todo')
+  .description(`Scan ${$.c.g('JS Front TODO label list.')}`)
+  .action(function (option, path) {
+    tools.cc.index.listTodoLabel()
+  })
 commander.command('ccc')
   .description(`Scan ${$.c.g('JS Front Check.')}`)
   .option('-f, --fix', 'fix problem...')
