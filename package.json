@@ -38,7 +38,8 @@
     "bug": "git add . && git commit -m:bug: && npm version patch && npm publish ."
   },
   "bin": {
-    "skyjt": "./bin/skyjt.js"
+    "skyjt": "./bin/skyjt.js",
+    "jt": "./bin/skyjt.js"
   },
   "repository": {
     "type": "git",
