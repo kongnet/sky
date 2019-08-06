@@ -90,6 +90,11 @@ commander.command('cc')
   .action(function (option, path) {
     tools.cc.index.scan(option.all)
   })
+  commander.command('cv')
+  .description(`Scan ${$.c.g('JS Variable')}`)
+  .action(function (option, path) {
+    tools.cc.index.checkVariable()
+  })
 commander.command('ecc')
   .description(`Scan ${$.c.g('JS Front Dimensions Check.')}`)
   .action(function (option, path) {
