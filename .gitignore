@@ -1,7 +1,8 @@
 .vscode
 node_modules
 coverage
-/output
+temp
+output
 /*.log
 /test*.*
 package-lock.json
