@@ -28,7 +28,10 @@ function genConfig (obj) {
       'mysqlProbe.js': [path.join(dir, 'service', 'mysqlProbe.js'), obj, '探针Service']
     },
     template: {
-      'treemap-mysql.html': [path.join(dir, 'template', 'treemap-mysql.html'), null, '探针View']
+      'grid-mysql.html': [path.join(dir, 'template', 'grid-mysql.html'), null, 'mysqlGrid探针'],
+      'tree-mysql.html': [path.join(dir, 'template', 'tree-mysql.html'), null, 'mysqlTree探针'],
+      'treemap-mysql.html': [path.join(dir, 'template', 'treemap-mysql.html'), null, 'mysqlTreemap探针']
+
     },
     tests: {},
     tools: {},
