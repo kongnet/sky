@@ -7,14 +7,19 @@ async function checkVersion () {
   let r = await req({
     method: 'get',
     uri: 'https://raw.githubusercontent.com/kongnet/sky/master/package.json',
-    timeout: 1000
+    timeout: 500
   })
   let verLocal = Pack.version.split('.')
   let s1 = verLocal.reduce((x, y, idx) => +x * 10 ** (4 - idx) + +y * 10 ** (3 - idx))
   let ver = JSON.parse(r.replaceAll('\n', '')).version.split('.')
   let s2 = ver.reduce((x, y, idx) => +x * 10 ** (4 - idx) + +y * 10 ** (3 - idx))
   if (s2 > s1) {
-    console.log('新版本发现', verLocal.join('.'), '=>', $.c.m(ver.join('.')), $.c.c(' npm i -g skyjt '))
+    console.log(`
+    ╭───────────────────────────────────────╮
+    │   新版本发现 ${verLocal.join('.')} => ${$.c.m(ver.join('.'))}       │
+    │       运行   ${$.c.c(' npm i -g skyjt ')}         │
+    ╰───────────────────────────────────────╯`)
+  // console.log('新版本发现', verLocal.join('.'), '=>', $.c.m(ver.join('.')), $.c.c(' npm i -g skyjt '))
   }
 }
 checkVersion()

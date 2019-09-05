@@ -1,3 +1,12 @@
+## [0.9.104](https://github.com/kongnet/sky/compare/v0.9.103...v0.9.104) (2019-08-30)
+
+
+### :sparkles:
+
+* 增加模板中的文件 ([53e52d8](https://github.com/kongnet/sky/commit/53e52d8))
+
+
+
 ## [0.9.103](https://github.com/kongnet/sky/compare/v0.9.102...v0.9.103) (2019-08-27)
 
 
