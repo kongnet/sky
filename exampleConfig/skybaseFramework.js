@@ -34,7 +34,10 @@ function genConfig (obj) {
 
     },
     tests: {},
-    tools: {},
+    tool: {
+      'mocha_api_test.js': [path.join(dir, 'tool', 'mocha_api_test.js'), obj, 'mocha无参数提交测试api接口'],
+      'scanNoParam.js': [path.join(dir, 'tool', 'scanNoParam.js'), obj, '无参数测试运行js']
+    },
     sql: {},
     'README.md': [path.join(dir, 'README.md.tpl'), obj, 'README.md项目说明文件'],
     'package.json': [path.join(dir, 'package.json.tpl'), obj, 'package.json'],
