@@ -1,5 +1,5 @@
 const path = require('path')
-const dir = './_temp_jt_skybase/output-template/'
+const dir = './_temp_jt_skybase/'
 
 function genConfig (obj) {
   let o = {

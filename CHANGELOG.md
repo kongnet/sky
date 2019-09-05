@@ -1,3 +1,12 @@
+## [0.9.106](https://github.com/kongnet/sky/compare/v0.9.105...v0.9.106) (2019-09-05)
+
+
+### :sparkles:
+
+* skybase模板增加api扫描文件 ([17a29fd](https://github.com/kongnet/sky/commit/17a29fd))
+
+
+
 ## [0.9.105](https://github.com/kongnet/sky/compare/v0.9.104...v0.9.105) (2019-09-05)
 
 
