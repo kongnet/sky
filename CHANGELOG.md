@@ -1,3 +1,12 @@
+## [0.9.107](https://github.com/kongnet/sky/compare/v0.9.106...v0.9.107) (2019-09-05)
+
+
+### :sparkles:
+
+* 修改jt init到的仓库 ([6498863](https://github.com/kongnet/sky/commit/6498863))
+
+
+
 ## [0.9.106](https://github.com/kongnet/sky/compare/v0.9.105...v0.9.106) (2019-09-05)
 
 

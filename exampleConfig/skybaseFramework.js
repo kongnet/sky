@@ -12,6 +12,10 @@ function genConfig (obj) {
     },
     job: {},
     lib: {},
+    middleware: {
+      'sample-middleware.js': [path.join(dir, 'middleware', 'sample-middleware.js'), obj, '中间件例子'],
+      'README.md': [path.join(dir, 'middleware', 'README.md'), obj, 'middleware帮助文件']
+    },
     model: {
       api: {
         skyapi: {
