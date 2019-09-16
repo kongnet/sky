@@ -257,7 +257,7 @@ commander.command('post')
 commander.parse(process.argv)
 
 if (process.argv.length === 2) {
-  const CFonts = require('cfonts')
+/*   const CFonts = require('cfonts')
 
   CFonts.say('SKYJT', {
     font: 'chrome',
@@ -265,7 +265,7 @@ if (process.argv.length === 2) {
     colors: ['#0ff', 'green', '#ff0'],
     space: false
   })
-
+ */
   console.log(`[${$.c.g(Pack.version)}] Sky framework: ${$.c.y('sky init')}`)
 }
 let errStackFn = e => {
