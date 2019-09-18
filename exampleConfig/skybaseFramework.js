@@ -54,6 +54,7 @@ function genConfig (obj) {
     },
     sql: {},
     'README.md': [path.join(dir, 'README.md.tpl'), obj, 'README.md项目说明文件'],
+    'README_stat.md': [path.join(dir, 'README_stat.md'), obj, 'README_stat.md项目说明文件'],
     'package.json': [path.join(dir, 'package.json.tpl'), obj, 'package.json'],
     '.gitignore': [path.join(dir, '.gitignore'), obj, 'Git忽略文件列表'],
     '.editorconfig': [path.join(dir, '.editorconfig'), obj, 'editorconfig'],
@@ -61,6 +62,7 @@ function genConfig (obj) {
     '.istanbul.yml': [path.join(dir, '.istanbul.yml'), obj, 'istanbul'],
     'sonar-project.properties': [path.join(dir, 'sonar-project.properties.tpl'), obj, 'sonar扫描配置'],
     'index.js': [path.join(dir, 'index.js.tpl'), obj, '主启动文件'],
+    'index_stat.js': [path.join(dir, 'index_stat.js.tpl'), obj, '统计主启动文件'],
     '.gitlab-ci.yml': null,
     www: {}
   }
