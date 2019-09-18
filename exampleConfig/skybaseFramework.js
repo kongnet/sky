@@ -20,16 +20,26 @@ function genConfig (obj) {
       api: {
         skyapi: {
           'mock.js': [path.join(dir, 'model', 'api', 'skyapi', 'mock.js'), obj, 'mock接口定义'],
-          'probe.js': [path.join(dir, 'model', 'api', 'skyapi', 'probe.js'), obj, 'mysql探针接口定义']
+          'probe.js': [path.join(dir, 'model', 'api', 'skyapi', 'probe.js'), obj, 'mysql探针接口定义'],
+          'sky-stat.js': [path.join(dir, 'model', 'api', 'skyapi', 'sky-stat.js'), obj, '接口统计定义']
         }
       },
-      'mock.js': [path.join(dir, 'model', 'mock.js'), obj, 'mock需要扩展的函数']
+      'mock.js': [path.join(dir, 'model', 'mock.js'), obj, 'mock需要扩展的函数'],
+      'sky-stat': {
+        'htmlOut.js': [path.join(dir, 'model', 'sky-stat', 'htmlOut.js'), obj, '统计输出模板类']
+      }
     },
     router: {
-      'mysqlProbe.js': [path.join(dir, 'router', 'mysqlProbe.js'), obj, '探针Controller']
+      'mysqlProbe.js': [path.join(dir, 'router', 'mysqlProbe.js'), obj, '探针Controller'],
+      'sky-stat': {
+        'stat.js': [path.join(dir, 'router', 'sky-stat', 'stat.js'), obj, '统计router']
+      }
     },
     service: {
-      'mysqlProbe.js': [path.join(dir, 'service', 'mysqlProbe.js'), obj, '探针Service']
+      'mysqlProbe.js': [path.join(dir, 'service', 'mysqlProbe.js'), obj, '探针Service'],
+      'sky-stat': {
+        'stat.js': [path.join(dir, 'service', 'sky-stat', 'stat.js'), obj, '统计service']
+      }
     },
     template: {
       'grid-mysql.html': [path.join(dir, 'template', 'grid-mysql.html'), null, 'mysqlGrid探针'],

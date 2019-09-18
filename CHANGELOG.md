@@ -1,3 +1,12 @@
+## [0.9.109](https://github.com/kongnet/sky/compare/v0.9.108...v0.9.109) (2019-09-16)
+
+
+### :art:
+
+* 去除cfonts依赖 ([c96c2e2](https://github.com/kongnet/sky/commit/c96c2e2))
+
+
+
 ## [0.9.108](https://github.com/kongnet/sky/compare/v0.9.107...v0.9.108) (2019-09-09)
 
 
