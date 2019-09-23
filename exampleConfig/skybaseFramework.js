@@ -25,6 +25,7 @@ function genConfig (obj) {
         }
       },
       'mock.js': [path.join(dir, 'model', 'mock.js'), obj, 'mock需要扩展的函数'],
+      'crud.js': [path.join(dir, 'model', 'crud.js'), obj, '数据库crud扩展'],
       'sky-stat': {
         'htmlOut.js': [path.join(dir, 'model', 'sky-stat', 'htmlOut.js'), obj, '统计输出模板类']
       }
@@ -33,6 +34,9 @@ function genConfig (obj) {
       'mysqlProbe.js': [path.join(dir, 'router', 'mysqlProbe.js'), obj, '探针Controller'],
       'sky-stat': {
         'stat.js': [path.join(dir, 'router', 'sky-stat', 'stat.js'), obj, '统计router']
+      },
+      'mock': {
+        'img.js': [path.join(dir, 'router', 'mock', 'img.js'), obj, '统计router']
       }
     },
     service: {
@@ -63,6 +67,7 @@ function genConfig (obj) {
     'sonar-project.properties': [path.join(dir, 'sonar-project.properties.tpl'), obj, 'sonar扫描配置'],
     'index.js': [path.join(dir, 'index.js.tpl'), obj, '主启动文件'],
     'index_stat.js': [path.join(dir, 'index_stat.js.tpl'), obj, '统计主启动文件'],
+    'skyconfig.js': [path.join(dir, 'skyconfig.js'), obj, 'skybase主动配置文件'],
     '.gitlab-ci.yml': null,
     www: {}
   }
