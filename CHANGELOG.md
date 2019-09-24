@@ -1,3 +1,12 @@
+## [0.9.112](https://github.com/kongnet/sky/compare/v0.9.111...v0.9.112) (2019-09-23)
+
+
+### :art:
+
+* 修改skybase模板 ([7e990d3](https://github.com/kongnet/sky/commit/7e990d3))
+
+
+
 ## [0.9.111](https://github.com/kongnet/sky/compare/v0.9.110...v0.9.111) (2019-09-18)
 
 
