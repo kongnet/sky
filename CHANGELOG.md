@@ -1,3 +1,16 @@
+## [0.9.114](https://github.com/kongnet/sky/compare/v0.9.113...v0.9.114) (2019-09-25)
+
+
+### :art:
+
+* 移动循环删除到meeko ([1c2d5b7](https://github.com/kongnet/sky/commit/1c2d5b7))
+
+### :bug:
+
+* file命名空间 ([39c5fcf](https://github.com/kongnet/sky/commit/39c5fcf))
+
+
+
 ## [0.9.113](https://github.com/kongnet/sky/compare/v0.9.112...v0.9.113) (2019-09-24)
 
 
