@@ -1,4 +1,4 @@
-## [0.9.115](https://github.com/kongnet/sky/compare/0.9.28...0.9.115) (2019-11-19)
+## [0.9.116](https://github.com/kongnet/sky/compare/0.9.28...v0.9.116) (2019-11-19)
 
 
 ### :art:
@@ -43,6 +43,7 @@
 * jt commit规范 ([3f478e2](https://github.com/kongnet/sky/commit/3f478e2abe7c2eedce16f11280b261b647ac9a5e))
 * skybase模板初始化和skyjt分离 ([9621f9f](https://github.com/kongnet/sky/commit/9621f9fb257cfeb5ac31518b7b984a0a41fa8f03))
 * skybase模板增加api扫描文件 ([17a29fd](https://github.com/kongnet/sky/commit/17a29fdaf95cda827af78f1c47d3f816a8008128))
+* 产生扫描数据库配置文件功能jt db genjson ([6d21f06](https://github.com/kongnet/sky/commit/6d21f06495535091a52a34e7419948e5695c9306))
 * 修改jt init到的仓库 ([6498863](https://github.com/kongnet/sky/commit/64988636cc44551ba018d4fa7cd480e99b2b0d88))
 * 增加api统计功能 ([cf76a86](https://github.com/kongnet/sky/commit/cf76a8668f90d42fe2733adcb6f9a69b6fccb837))
 * 增加全局jt命令 ([968f9d8](https://github.com/kongnet/sky/commit/968f9d89ca1f77bab2266db76d8382e40e90a6cd))
