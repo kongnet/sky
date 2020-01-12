@@ -1,3 +1,12 @@
+## [0.9.121](https://github.com/kongnet/sky/compare/v0.9.120...v0.9.121) (2020-01-12)
+
+
+### :zap:
+
+* bin目录下的文件强制CRLF ---> Unix LF ([587d5e3](https://github.com/kongnet/sky/commit/587d5e3711e8d54e1b609be1bb68d4c3fb462ce1))
+
+
+
 ## [0.9.120](https://github.com/kongnet/sky/compare/v0.9.119...v0.9.120) (2020-01-12)
 
 
