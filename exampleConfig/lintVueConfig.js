@@ -1,5 +1,5 @@
 const config = {
-  'ver': '0.1.0',
+  ver: '0.1.0',
   '.editorconfig': null,
   // '.eslintignore': null,
   '.eslintrc.js': null,
@@ -8,6 +8,6 @@ const config = {
   '.stylelintignore': null,
   '.stylelintrc.json': null,
   'sonar-project.properties': null,
-  'packages': []
+  packages: []
 }
 module.exports = config

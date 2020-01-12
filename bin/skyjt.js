@@ -56,7 +56,7 @@ commander
   )
   .option('-t, --template <templatename>', 'sky|mp| ...')
   .option('-f, --force', 'force cover dir')
-  .action(async function(option, cfg) {
+  .action(async function (option, cfg) {
     let r = {}
     if (cfg.config) {
       const setting = require(path.join(__dirname, cfg.config))
@@ -68,7 +68,7 @@ commander
 
     spinnerHandler = new $.Spinner()
     spinnerHandler.start('Project Init...')
-    setTimeout(function() {
+    setTimeout(function () {
       spinnerHandler.stop()
       if (r.templateName) {
         console.log(`${r.templateName} [${r.ver}] Init Done.`)
@@ -82,7 +82,7 @@ commander
   .description('create/cover ' + $.c.g('Lint') + ' config in project root path')
   .option('-t, --template <template>', 'vue|weex|mp|react ...')
   .option('-f, --force', 'force cover file')
-  .action(async function(option, name) {
+  .action(async function (option, name) {
     let r = {}
     spinnerHandler = new $.Spinner()
     spinnerHandler.start('Loading...')
@@ -102,7 +102,7 @@ commander
         name.template
       )
     }
-    setTimeout(function() {
+    setTimeout(function () {
       spinnerHandler.stop()
       if (r.templateName) {
         console.log(`${r.templateName} [${r.ver}] Generate Done.`)
@@ -113,38 +113,38 @@ commander
 commander
   .command('czjt')
   .description(`Install ${$.c.g('Jiatui commitizen')}`)
-  .action(function(option, path) {
+  .action(function (option, path) {
     tools.czjt.index.install()
   })
 commander
   .command('ccjt')
   .description(`Install ${$.c.g('Jiatui Cyclomatic complexity install')}`)
-  .action(function(option, path) {
+  .action(function (option, path) {
     tools.cc.index.install()
   })
 commander
   .command('cc')
   .description(`Scan ${$.c.g('JS Cyclomatic complexity')}`)
   .option('-a, --all', 'show all function and method...')
-  .action(function(option, path) {
+  .action(function (option, path) {
     tools.cc.index.scan(option.all)
   })
 commander
   .command('cv')
   .description(`Scan ${$.c.g('JS Variable')}`)
-  .action(function(option, path) {
+  .action(function (option, path) {
     tools.cc.index.checkVariable()
   })
 commander
   .command('ecc')
   .description(`Scan ${$.c.g('JS Front Dimensions Check.')}`)
-  .action(function(option, path) {
+  .action(function (option, path) {
     tools.cc.index.runJtFrontEasyCheck()
   })
 commander
   .command('todo')
   .description(`Scan ${$.c.g('JS Front TODO label list.')}`)
-  .action(function(option, path) {
+  .action(function (option, path) {
     tools.cc.index.listTodoLabel()
   })
 commander
@@ -152,13 +152,13 @@ commander
   .description(`Scan ${$.c.g('JS Front Check.')}`)
   .option('-f, --fix', 'fix problem...')
   .option('-s, --stat', 'stat problem...')
-  .action(function(option, path) {
+  .action(function (option, path) {
     tools.cc.index.runJtFrontCheck(option.fix, option.stat)
   })
 commander
   .command('answer')
   .description('Answer your question!')
-  .action(function(option, path) {
+  .action(function (option, path) {
     tools.answer.index.answer()
   })
 commander
@@ -166,7 +166,7 @@ commander
   .alias('jt')
   .description(`Init ${$.c.g('JiatuiCommonJS')}`)
   .option('-c, --config <path>', 'defaults to ./jt.js')
-  .action(function(option, path) {
+  .action(function (option, path) {
     if (path.config) {
       tools.jtjs.index.writeFile(path.config)
     } else {
@@ -181,7 +181,7 @@ commander
   )
   .option('-c, --config <path>', 'defaults to ./config.js')
   .option('genjson, genjson', 'gen ./sky_db_scan_config.js')
-  .action(function(option, p) {
+  .action(function (option, p) {
     // console.log(option, p.config)
     if (option === 'genjson') {
       tools.dbscan.index.genJson()
@@ -196,14 +196,14 @@ commander
 commander
   .command('gitstat')
   .description('Statistics git author commits and lines')
-  .action(function(option, p) {
+  .action(function (option, p) {
     tools.gitstat.index.scan()
   })
 commander
   .command('capi')
   .description('create front Api files automatically')
   .option('-c, --config <path>', 'defaults to ./capiConf.js')
-  .action(function() {
+  .action(function () {
     tools.capi.index.main()
   })
 commander
@@ -211,7 +211,7 @@ commander
   .alias('comment')
   .description('scan ' + $.c.g('Function Comment JiaTui rules.'))
   .option('-c, --config <path>', 'defaults to ./commentConf.js')
-  .action(async function(option, p) {
+  .action(async function (option, p) {
     spinnerHandler = new $.Spinner()
     spinnerHandler.start('Scan files...')
 
@@ -237,7 +237,7 @@ commander
   .alias('swagger')
   .description('scan ' + $.c.g('Swagger JiaTui rules'))
   .option('-c, --config <path>', 'defaults to ./config.js')
-  .action(async function(option, p) {
+  .action(async function (option, p) {
     // $.log('swagger', path.config)
     spinnerHandler = new $.Spinner()
     spinnerHandler.start('Swagger scan...')
@@ -247,7 +247,7 @@ commander
     } else {
       r = await tools.swaggerscan.index.scan()
     }
-    setTimeout(function() {
+    setTimeout(function () {
       spinnerHandler.stop()
       $.dir(r)
       console.log('Scan Done.')
@@ -258,7 +258,7 @@ commander
   .command('wttr')
   .description('weather output -c [city]')
   .option('-c, --city [city]', 'defaults local')
-  .action(async function(option, p) {
+  .action(async function (option, p) {
     // $.log(option.city)
     spinnerHandler = new $.Spinner()
     spinnerHandler.start('Downloading...')
@@ -269,7 +269,7 @@ commander
 commander
   .command('dict')
   .description(`en-cn ${$.c.g('Dict')}. skyjt dict [word]`)
-  .action(async function(...p) {
+  .action(async function (...p) {
     if ($.tools.isString(p[0])) {
       let r = await tools.curl.index.dict(p[0])
       //process.stdout.write(r)
@@ -279,7 +279,7 @@ commander
   .command('coin')
   .description('cryptocurrencies exchange rates -c [coin name]')
   .option('-c, --coin [name]', 'defaults top 10')
-  .action(async function(option, p) {
+  .action(async function (option, p) {
     spinnerHandler = new $.Spinner()
     spinnerHandler.start('Downloading...')
     let r = await tools.curl.index.coin(option.coin)
@@ -289,13 +289,13 @@ commander
 commander
   .command('history')
   .description('today history ')
-  .action(function(option, p) {
+  .action(function (option, p) {
     tools.todayhistory.index.scan()
   })
 commander
   .command('fun')
   .description('fun output')
-  .action(function(option, p) {
+  .action(function (option, p) {
     keyboard()
   })
 commander
@@ -303,7 +303,7 @@ commander
   .description(`${$.c.g('Get')} -h url -p param`)
   .option('-p, --param [param]', '')
   .option('-h, --host <param>', '')
-  .action(function(option, p) {
+  .action(function (option, p) {
     if (
       option.host &&
       (option.host.includes('http://') || option.host.includes('https://'))
@@ -317,7 +317,7 @@ commander
   .description(`${$.c.g('Post')} -h url -p param`)
   .option('-p, --param [param]', '')
   .option('-h, --host <param>', '')
-  .action(function(option, p) {
+  .action(function (option, p) {
     if (
       option.host &&
       (option.host.includes('http://') || option.host.includes('https://'))
