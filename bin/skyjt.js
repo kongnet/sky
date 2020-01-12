@@ -338,7 +338,7 @@ if (process.argv.length === 2) {
     space: false
   })
  */
-  console.log(`[${$.c.g(Pack.version)}] Sky framework: ${$.c.y('sky init')}`)
+  console.log(`[${$.c.g(Pack.version)}] Sky framework: ${$.c.y('jt init')}`)
 }
 let errStackFn = e => {
   if (spinnerHandler.stop) {
@@ -346,7 +346,7 @@ let errStackFn = e => {
   }
   let str = e.toString()
   if (!str.includes('TIMEDOUT') && !str.includes('ENOTFOUND')) {
-    $.err(e.toString())
+    // $.err(e.toString())
   }
 }
 process.on('uncaughtException', errStackFn)
