@@ -30,7 +30,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "eslintfix": "eslint ./jt.js --fix",
-    "cz": "conventional-changelog -p atom -i CHANGELOG.md -s -r 0 && git add . && git status && git cz",
+    "cz": "npm-publish-bin && conventional-changelog -p atom -i CHANGELOG.md -s -r 0 && git add . && git status && git cz",
     "push": "npm version patch && npm publish . && git push",
     "bug": "git add . && git commit -m:bug: && npm version patch && npm publish ."
   },
@@ -50,13 +50,7 @@
     }
   },
   "standard": {
-    "globals": [
-      "$",
-      "describe",
-      "it",
-      "define",
-      "db"
-    ],
+    "globals": ["$", "describe", "it", "define", "db"],
     "ignore": []
   }
 }
