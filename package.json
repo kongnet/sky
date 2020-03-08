@@ -5,7 +5,7 @@
   "main": "skyjt.js",
   "dependencies": {
     "babel-eslint": "^10.0.2",
-    "cc-jt": "^0.1.25",
+    "cc-jt": "^0.1.26",
     "cheerio": "^1.0.0-rc.3",
     "commander": "^2.20.0",
     "cz-jt": "^0.1.7",
@@ -13,7 +13,7 @@
     "eslint": "^6.1.0",
     "eslint-formatter-html-extended": "^1.0.2",
     "eslint-plugin-html": "^6.0.0",
-    "eslint-plugin-vue": "^5.2.3",
+    "eslint-plugin-vue": "^6.1.0",
     "inquirer": "^6.5.0",
     "j2dir": "^0.1.9",
     "j2sql": "^1.9.25",
