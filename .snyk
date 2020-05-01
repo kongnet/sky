@@ -1,0 +1,34 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - cheerio > lodash:
+        patched: '2020-05-01T00:36:13.270Z'
+    - inquirer > lodash:
+        patched: '2020-05-01T00:36:13.270Z'
+    - eslint > lodash:
+        patched: '2020-05-01T00:36:13.270Z'
+    - eslint-formatter-html-extended > lodash:
+        patched: '2020-05-01T00:36:13.270Z'
+    - babel-eslint > @babel/traverse > lodash:
+        patched: '2020-05-01T00:36:13.270Z'
+    - eslint-plugin-vue > vue-eslint-parser > lodash:
+        patched: '2020-05-01T00:36:13.270Z'
+    - eslint > inquirer > lodash:
+        patched: '2020-05-01T00:36:13.270Z'
+    - eslint > table > lodash:
+        patched: '2020-05-01T00:36:13.270Z'
+    - request-promise-native > request-promise-core > lodash:
+        patched: '2020-05-01T00:36:13.270Z'
+    - babel-eslint > @babel/traverse > @babel/generator > lodash:
+        patched: '2020-05-01T00:36:13.270Z'
+    - cc-jt > eslint-plugin-vue > vue-eslint-parser > lodash:
+        patched: '2020-05-01T00:36:13.270Z'
+    - cz-jt > inquirer-autocomplete-prompt > inquirer > lodash:
+        patched: '2020-05-01T00:36:13.270Z'
+    - babel-eslint > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2020-05-01T00:36:13.270Z'
+    - babel-eslint > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2020-05-01T00:36:13.270Z'
