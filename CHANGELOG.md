@@ -1,3 +1,12 @@
+## [0.9.123](https://github.com/kongnet/sky/compare/v0.9.122...v0.9.123) (2020-06-05)
+
+
+### :sparkles:
+
+* 增强数据库扫描规则 ([37ecca6](https://github.com/kongnet/sky/commit/37ecca679adc1ac62aa9920da7a0f189340cd6a4))
+
+
+
 ## [0.9.122](https://github.com/kongnet/sky/compare/v0.9.121...v0.9.122) (2020-01-12)
 
 
