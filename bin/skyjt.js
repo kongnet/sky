@@ -77,6 +77,31 @@ commander
     }, 1000)
   })
 commander
+  .command('initmp [option]')
+  .alias('imp')
+  .description($.c.g('Init') + ' MP Framework')
+  .option('-f, --force', 'force cover dir')
+  .action(async function (option, cfg) {
+    let r = {}
+    if (cfg.config) {
+      const setting = require(path.join(__dirname, cfg.config))
+      r = await tools.init.index.initMp(cfg, setting)
+      // tools.init.index.initByConfig(projectName, setting, name.force)
+    } else {
+      r = await tools.init.index.initMp(cfg)
+    }
+
+    spinnerHandler = new $.Spinner()
+    spinnerHandler.start('MP Project Init...')
+    setTimeout(function () {
+      spinnerHandler.stop()
+      if (r.templateName) {
+        console.log(`${r.templateName} [${r.ver}] Init Done.`)
+      }
+      process.exit(0)
+    }, 1000)
+  })
+commander
   .command('lint [option]')
   .alias('l')
   .description('create/cover ' + $.c.g('Lint') + ' config in project root path')

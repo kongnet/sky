@@ -1,3 +1,8 @@
+## [0.9.124](https://github.com/kongnet/sky/compare/v0.9.123...v0.9.124) (2020-06-06)
+
+
+
+
 ## [0.9.123](https://github.com/kongnet/sky/compare/v0.9.122...v0.9.123) (2020-06-05)
 
 
