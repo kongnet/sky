@@ -1,3 +1,12 @@
+## [0.9.125](https://github.com/kongnet/sky/compare/v0.9.124...v0.9.125) (2020-08-06)
+
+
+### :zap:
+
+* 增加小程序模板创建 ([6a458ee](https://github.com/kongnet/sky/commit/6a458eeca9a4ae48668bfce8ca5f523cf908a552))
+
+
+
 ## [0.9.124](https://github.com/kongnet/sky/compare/v0.9.123...v0.9.124) (2020-06-06)
 
 
