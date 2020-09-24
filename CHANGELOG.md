@@ -1,3 +1,12 @@
+## [0.9.126](https://github.com/kongnet/sky/compare/v0.9.125...v0.9.126) (2020-08-06)
+
+
+### :zap:
+
+* 增加模板生成时的open，close字串 ([216ba33](https://github.com/kongnet/sky/commit/216ba33092c380a990476d2a408c7c3c7e4485b0))
+
+
+
 ## [0.9.125](https://github.com/kongnet/sky/compare/v0.9.124...v0.9.125) (2020-08-06)
 
 

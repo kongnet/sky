@@ -4,7 +4,7 @@
 [![Downloads](https://img.shields.io/npm/dy/skyjt.svg?style=popout)](https://img.shields.io/npm/dy/skyjt.svg?style=popout)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkongnet%2Fsky.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkongnet%2Fsky?ref=badge_shield)
 
-### JiaTui Front group flash tools
+### JT Front group flash tools
 
 - init ，i 初始化全栈工程结构
 - init ，initmp 初始化小程序工程结构
@@ -13,9 +13,9 @@
 
 - dbscan，db JiaTui 数据库扫描规则 Default: 127.0.0.1/root/123456
 
-- commentscan，comment 加推前端函数注释扫描
+- commentscan，comment jt前端函数注释扫描
 
-- swaggerscan，swagger [options][option] 加推 swagger 规范扫描
+- swaggerscan，swagger [options][option] jt swagger 规范扫描
 
 - history today history
 
