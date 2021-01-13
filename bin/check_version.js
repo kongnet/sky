@@ -30,7 +30,7 @@ checkVersion()
 let errStackFn = e => {
   let str = e.toString()
   if (!str.includes('TIMEDOUT') && !str.includes('ENOTFOUND')) {
-    //$.err(e.toString())
+    // $.err(e.toString())
   }
 }
 process.on('uncaughtException', errStackFn)

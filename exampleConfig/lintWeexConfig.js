@@ -23,6 +23,7 @@ const config = {
       'src/**/*.{js,vue}': ['eslint --ext .js,.vue --fix', 'git add']
     },
     devDependencies: {
+
       /** eslint */
 
       eslint: '^4.19.1',
