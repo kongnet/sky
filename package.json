@@ -1,6 +1,6 @@
 {
   "name": "skyjt",
-  "version": "0.9.127",
+  "version": "0.9.128",
   "description": "skyjt",
   "main": "skyjt.js",
   "dependencies": {
@@ -35,8 +35,8 @@
     "bug": "git add . && git commit -m:bug: && npm version patch && npm publish ."
   },
   "bin": {
-    "skyjt": "./bin/skyjt.js",
-    "jt": "./bin/skyjt.js"
+    "skyjt": "bin/skyjt.js",
+    "jt": "bin/skyjt.js"
   },
   "repository": {
     "type": "git",
