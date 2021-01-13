@@ -3,7 +3,7 @@ const req = require('request-promise-native')
 let Pack = require('../package.json')
 
 // 版本号检测
-async function checkVersion () {
+async function checkVersion() {
   let r = await req({
     method: 'get',
     uri: 'https://raw.githubusercontent.com/kongnet/sky/master/package.json',
