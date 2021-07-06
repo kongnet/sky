@@ -1,3 +1,12 @@
+## [0.9.133](https://github.com/kongnet/sky/compare/v0.9.132...v0.9.133) (2021-07-06)
+
+
+### :zap:
+
+* 增加xj别名 ([87d15bf](https://github.com/kongnet/sky/commit/87d15bf03d141ae60a08d8b3afcf6300110d1f54))
+
+
+
 ## [0.9.132](https://github.com/kongnet/sky/compare/v0.9.131...v0.9.132) (2021-01-13)
 
 
