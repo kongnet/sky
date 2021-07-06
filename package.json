@@ -1,6 +1,6 @@
 {
   "name": "skyjt",
-  "version": "0.9.132",
+  "version": "0.9.133",
   "description": "skyjt",
   "main": "skyjt.js",
   "dependencies": {
@@ -38,7 +38,6 @@
     "skyjt": "bin/skyjt.js",
     "jt": "bin/skyjt.js",
     "xj": "bin/skyjt.js"
-
   },
   "repository": {
     "type": "git",
