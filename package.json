@@ -36,7 +36,9 @@
   },
   "bin": {
     "skyjt": "bin/skyjt.js",
-    "jt": "bin/skyjt.js"
+    "jt": "bin/skyjt.js",
+    "xj": "bin/skyjt.js"
+
   },
   "repository": {
     "type": "git",
