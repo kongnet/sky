@@ -34,10 +34,11 @@
     "push": "npm version patch && npm publish . && git push",
     "bug": "git add . && git commit -m:bug: && npm version patch && npm publish ."
   },
+  "commandName": "xc | skyjt",
   "bin": {
     "skyjt": "bin/skyjt.js",
     "jt": "bin/skyjt.js",
-    "xj": "bin/skyjt.js"
+    "xc": "bin/skyjt.js"
   },
   "repository": {
     "type": "git",

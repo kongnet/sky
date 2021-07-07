@@ -10,7 +10,8 @@ let spinnerHandler = {}
 const childProcess = require('child_process')
 
 childProcess.fork(path.join(__dirname, 'check_version.js'))
-
+commander.Command(Pack.commandName)
+// commander.Command(Pack.commandName)
 // 输出字符键盘1
 function keyboard () {
   /*eslint-disable */
@@ -40,7 +41,7 @@ function keyboard () {
 }
 commander
   .usage('[command] [options] <file ...>')
-  .version(`[${$.c.g(Pack.version)}] Sky Framework`, '-v, --version')
+  .version(`[${$.c.g(Pack.version)}] Sky Cli`, '-v, --version')
 // .option('-a, --aaa-bbb', 'commander.aaaBbb')
 // .option('-mp, --mp', 'cheat miniProgram')
 
