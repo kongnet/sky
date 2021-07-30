@@ -1,3 +1,12 @@
+## [0.9.135](https://github.com/kongnet/sky/compare/v0.9.134...v0.9.135) (2021-07-07)
+
+
+### :zap:
+
+* 增加xc别名 ([167c9b1](https://github.com/kongnet/sky/commit/167c9b162e719a49167124ff2abd7c9c715a4dee))
+
+
+
 ## [0.9.134](https://github.com/kongnet/sky/compare/v0.9.133...v0.9.134) (2021-07-06)
 
 

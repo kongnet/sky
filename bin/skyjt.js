@@ -352,6 +352,22 @@ commander
       tools.curl.index.scan(option)
     }
   })
+commander
+  .command('reportdb')
+  .description(`init report template or gen db report`)
+  .option('init, --init', '生成report模板')
+  .option('gen, --gen', '生成数据库注释')
+  .action(async function (option, p) {
+
+      if(option==='gen'){
+       await tools.dbreport.index.tableColumnList()
+      }
+      if(option==='init'){
+        tools.dbreport.index.initReportFile()
+       }
+      
+
+  })
 commander.parse(process.argv)
 
 if (process.argv.length === 2) {
