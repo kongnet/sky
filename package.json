@@ -1,6 +1,6 @@
 {
   "name": "skyjt",
-  "version": "0.9.136",
+  "version": "0.9.137",
   "description": "skyjt",
   "main": "skyjt.js",
   "dependencies": {
@@ -55,7 +55,13 @@
     }
   },
   "standard": {
-    "globals": ["$", "describe", "it", "define", "db"],
+    "globals": [
+      "$",
+      "describe",
+      "it",
+      "define",
+      "db"
+    ],
     "ignore": []
   }
 }
