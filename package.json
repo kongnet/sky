@@ -7,6 +7,7 @@
     "babel-eslint": "^10.0.2",
     "cc-jt": "^0.1.25",
     "cheerio": "^1.0.0-rc.3",
+    "clipboardy": "^2.3.0",
     "commander": "^2.20.0",
     "cz-jt": "^0.1.7",
     "download-git-repo": "^2.0.0",
@@ -14,6 +15,7 @@
     "eslint-formatter-html-extended": "^1.0.2",
     "eslint-plugin-html": "^6.0.0",
     "eslint-plugin-vue": "^5.2.3",
+    "ethers": "^5.6.4",
     "inquirer": "^6.5.0",
     "j2dir": "*",
     "j2sql": "*",
@@ -35,11 +37,11 @@
     "push": "npm version patch && npm publish . && git push",
     "bug": "git add . && git commit -m:bug: && npm version patch && npm publish ."
   },
-  "commandName": "xc | skyjt",
+  "commandName": "dn | skyjt",
   "bin": {
-    "skyjt": "bin/skyjt.js",
+    "sky": "bin/skyjt.js",
     "jt": "bin/skyjt.js",
-    "xc": "bin/skyjt.js"
+    "dn": "bin/skyjt.js"
   },
   "repository": {
     "type": "git",
@@ -53,13 +55,7 @@
     }
   },
   "standard": {
-    "globals": [
-      "$",
-      "describe",
-      "it",
-      "define",
-      "db"
-    ],
+    "globals": ["$", "describe", "it", "define", "db"],
     "ignore": []
   }
 }

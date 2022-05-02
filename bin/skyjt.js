@@ -39,12 +39,14 @@ function keyboard () {
   )
   /*eslint-ensable */
 }
-commander
-  .usage('[command] [options] <file ...>')
-  .version(`[${$.c.g(Pack.version)}] Sky Cli`, '-v, --version')
-// .option('-a, --aaa-bbb', 'commander.aaaBbb')
-// .option('-mp, --mp', 'cheat miniProgram')
 
+commander
+  .name('dn')
+  .usage('[command] [options] <file ...>')
+  .version(`[${$.c.g(Pack.version)}] Sky Cli Tools`, '-v, --version')
+  .action('help', function () {
+    console.log('xxxx')
+  })
 commander
   .command('init [option]')
   .alias('i')
@@ -156,6 +158,21 @@ commander
     tools.cc.index.scan(option.all)
   })
 commander
+  .command('wallet <init|gen>')
+  .description(`Create Eth Wallet and Encrypt`)
+  .option('-n, --walletnum [v1]', 'How many Wallet want to create', '2')
+
+  .action(function (option, path) {
+    //console.log('wallet', path['walletnum'], option)
+    if (option === 'init') {
+      tools.wallet.index.init(path['walletnum'])
+    }
+    if (option === 'gen') {
+      tools.wallet.index.gen()
+    }
+    //tools.wallet.index.scan(option.all)
+  })
+commander
   .command('cv')
   .description(`Scan ${$.c.g('JS Variable')}`)
   .action(function (option, path) {
@@ -206,10 +223,10 @@ commander
     'scan ' + $.c.g('Mysql JiaTui rules') + ' Default: 127.0.0.1/root/123456'
   )
   .option('-c, --config <path>', 'defaults to ./config.js')
-  .option('genjson, genjson', 'gen ./sky_db_scan_config.js')
+  .option('init, --init', 'gen ./sky-db-scan-config.js')
   .action(function (option, p) {
     // console.log(option, p.config)
-    if (option === 'genjson') {
+    if (option === 'init') {
       tools.dbscan.index.genJson()
       return
     }
@@ -353,20 +370,17 @@ commander
     }
   })
 commander
-  .command('reportdb')
+  .command('reportdb <init|gen>')
   .description(`init report template or gen db report`)
   .option('init, --init', '生成report模板')
-  .option('gen, --gen', '生成数据库注释')
+  .option('gen, --gen', '生成数据库表列描述')
   .action(async function (option, p) {
-
-      if(option==='gen'){
-       await tools.dbreport.index.tableColumnList()
-      }
-      if(option==='init'){
-        tools.dbreport.index.initReportFile()
-       }
-      
-
+    if (option === 'gen') {
+      await tools.dbreport.index.tableColumnList()
+    }
+    if (option === 'init') {
+      tools.dbreport.index.initReportFile()
+    }
   })
 commander.parse(process.argv)
 
@@ -380,7 +394,7 @@ if (process.argv.length === 2) {
     space: false
   })
  */
-  console.log(`[${$.c.g(Pack.version)}] Sky framework: ${$.c.y('jt init')}`)
+  console.log(`[${$.c.g(Pack.version)}] Sky framework: ${$.c.y('dn init')}`)
 }
 let errStackFn = e => {
   if (spinnerHandler.stop) {

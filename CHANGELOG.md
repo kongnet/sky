@@ -1,123 +1,4 @@
-## [0.9.135](https://github.com/kongnet/sky/compare/v0.9.134...v0.9.135) (2021-07-07)
-
-
-### :zap:
-
-* 增加xc别名 ([167c9b1](https://github.com/kongnet/sky/commit/167c9b162e719a49167124ff2abd7c9c715a4dee))
-
-
-
-## [0.9.134](https://github.com/kongnet/sky/compare/v0.9.133...v0.9.134) (2021-07-06)
-
-
-
-
-## [0.9.133](https://github.com/kongnet/sky/compare/v0.9.132...v0.9.133) (2021-07-06)
-
-
-### :zap:
-
-* 增加xj别名 ([87d15bf](https://github.com/kongnet/sky/commit/87d15bf03d141ae60a08d8b3afcf6300110d1f54))
-
-
-
-## [0.9.132](https://github.com/kongnet/sky/compare/v0.9.131...v0.9.132) (2021-01-13)
-
-
-
-
-## [0.9.131](https://github.com/kongnet/sky/compare/v0.9.130...v0.9.131) (2021-01-13)
-
-
-
-
-## [0.9.130](https://github.com/kongnet/sky/compare/v0.9.129...v0.9.130) (2021-01-13)
-
-
-
-
-## [0.9.129](https://github.com/kongnet/sky/compare/v0.9.128...v0.9.129) (2021-01-13)
-
-
-
-
-## [0.9.128](https://github.com/kongnet/sky/compare/v0.9.127...v0.9.128) (2021-01-13)
-
-
-
-
-## [0.9.127](https://github.com/kongnet/sky/compare/v0.9.126...v0.9.127) (2020-09-24)
-
-
-
-
-## [0.9.126](https://github.com/kongnet/sky/compare/v0.9.125...v0.9.126) (2020-08-06)
-
-
-### :zap:
-
-* 增加模板生成时的open，close字串 ([216ba33](https://github.com/kongnet/sky/commit/216ba33092c380a990476d2a408c7c3c7e4485b0))
-
-
-
-## [0.9.125](https://github.com/kongnet/sky/compare/v0.9.124...v0.9.125) (2020-08-06)
-
-
-### :zap:
-
-* 增加小程序模板创建 ([6a458ee](https://github.com/kongnet/sky/commit/6a458eeca9a4ae48668bfce8ca5f523cf908a552))
-
-
-
-## [0.9.124](https://github.com/kongnet/sky/compare/v0.9.123...v0.9.124) (2020-06-06)
-
-
-
-
-## [0.9.123](https://github.com/kongnet/sky/compare/v0.9.122...v0.9.123) (2020-06-05)
-
-
-### :sparkles:
-
-* 增强数据库扫描规则 ([37ecca6](https://github.com/kongnet/sky/commit/37ecca679adc1ac62aa9920da7a0f189340cd6a4))
-
-
-
-## [0.9.122](https://github.com/kongnet/sky/compare/v0.9.121...v0.9.122) (2020-01-12)
-
-
-
-
-## [0.9.121](https://github.com/kongnet/sky/compare/v0.9.120...v0.9.121) (2020-01-12)
-
-
-### :zap:
-
-* bin目录下的文件强制CRLF ---> Unix LF ([587d5e3](https://github.com/kongnet/sky/commit/587d5e3711e8d54e1b609be1bb68d4c3fb462ce1))
-
-
-
-## [0.9.120](https://github.com/kongnet/sky/compare/v0.9.119...v0.9.120) (2020-01-12)
-
-
-
-
-## [0.9.119](https://github.com/kongnet/sky/compare/v0.9.118...v0.9.119) (2020-01-12)
-
-
-
-
-## [0.9.118](https://github.com/kongnet/sky/compare/v0.9.117...v0.9.118) (2020-01-12)
-
-
-
-
-## [0.9.117](https://github.com/kongnet/sky/compare/v0.9.116...v0.9.117) (2019-11-19)
-
-
-
-
-## [0.9.116](https://github.com/kongnet/sky/compare/0.9.28...v0.9.116) (2019-11-19)
+## [0.9.136](https://github.com/kongnet/sky/compare/0.9.28...0.9.136) (2022-05-02)
 
 
 ### :art:
@@ -164,10 +45,12 @@
 * 增加答案之书功能 ([ccb2627](https://github.com/kongnet/sky/commit/ccb26274019d5e22b40afb64ba50a413494158d4))
 * 增加模板中的文件 ([53e52d8](https://github.com/kongnet/sky/commit/53e52d864c47a318f907660f6d17d153d514f04f))
 * 增加全局jt命令 ([968f9d8](https://github.com/kongnet/sky/commit/968f9d89ca1f77bab2266db76d8382e40e90a6cd))
+* 增加数据库描述生成龚 ([8157592](https://github.com/kongnet/sky/commit/815759253568f4aac1cdc52bc14e7fb5462f23a5))
 * 增加项目规模简易查看 ([addaeac](https://github.com/kongnet/sky/commit/addaeacd6eda55978be0f5a7546c2f0fc84764b9))
 * 增加英文-中文字典功能 ([d7949db](https://github.com/kongnet/sky/commit/d7949db4b8855e1a6f40236157000d7de60c2483))
 * 增加重构函数分组数，总需要的测试用例数 ([ffcab57](https://github.com/kongnet/sky/commit/ffcab573c8ace2f15350d0e196c5156216bb23e4))
 * 增加api统计功能 ([cf76a86](https://github.com/kongnet/sky/commit/cf76a8668f90d42fe2733adcb6f9a69b6fccb837))
+* 增强数据库扫描规则 ([37ecca6](https://github.com/kongnet/sky/commit/37ecca679adc1ac62aa9920da7a0f189340cd6a4))
 * 重写了cc功能 ([6df73cb](https://github.com/kongnet/sky/commit/6df73cb4511548a674b1cbd20fb5cc38126d2a95))
 * cc使用-a参数，显示所有函数 ([878c7ea](https://github.com/kongnet/sky/commit/878c7ea04f840403b5c909e64dd737c73e60473c))
 * cc增加耗时显示 ([0ce63ea](https://github.com/kongnet/sky/commit/0ce63ea0da1a8b8d75b48f8513165145ba987dc1))
@@ -179,6 +62,11 @@
 ### :zap:
 
 * 修改升级文案，解答之书文案 ([8586c62](https://github.com/kongnet/sky/commit/8586c62d152b85993d5d3a4d53ca4042b1a3574b))
+* 增加模板生成时的open，close字串 ([216ba33](https://github.com/kongnet/sky/commit/216ba33092c380a990476d2a408c7c3c7e4485b0))
+* 增加小程序模板创建 ([6a458ee](https://github.com/kongnet/sky/commit/6a458eeca9a4ae48668bfce8ca5f523cf908a552))
+* 增加xc别名 ([167c9b1](https://github.com/kongnet/sky/commit/167c9b162e719a49167124ff2abd7c9c715a4dee))
+* 增加xj别名 ([87d15bf](https://github.com/kongnet/sky/commit/87d15bf03d141ae60a08d8b3afcf6300110d1f54))
+* bin目录下的文件强制CRLF ---> Unix LF ([587d5e3](https://github.com/kongnet/sky/commit/587d5e3711e8d54e1b609be1bb68d4c3fb462ce1))
 
 
 
