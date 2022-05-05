@@ -11,7 +11,6 @@ const childProcess = require('child_process')
 
 childProcess.fork(path.join(__dirname, 'check_version.js'))
 commander.Command(Pack.commandName)
-// commander.Command(Pack.commandName)
 // 输出字符键盘1
 function keyboard () {
   /*eslint-disable */
@@ -42,11 +41,9 @@ function keyboard () {
 
 commander
   .name('dn')
-  .usage('[command] [options] <file ...>')
+  .usage('[command] [subCommand] [options] <file ...>')
   .version(`[${$.c.g(Pack.version)}] Sky Cli Tools`, '-v, --version')
-  .action('help', function () {
-    console.log('xxxx')
-  })
+
 commander
   .command('init [option]')
   .alias('i')
@@ -331,6 +328,7 @@ commander
   })
 commander
   .command('history')
+  .alias('today')
   .description('today history ')
   .action(function (option, p) {
     tools.todayhistory.index.scan()
@@ -394,7 +392,10 @@ if (process.argv.length === 2) {
     space: false
   })
  */
-  console.log(`[${$.c.g(Pack.version)}] Sky framework: ${$.c.y('dn init')}`)
+  commander.outputHelp()
+  console.log(
+    `\n  [${$.c.g(Pack.version)}] Sky framework: ${$.c.y('dn init')}\n`
+  )
 }
 let errStackFn = e => {
   if (spinnerHandler.stop) {

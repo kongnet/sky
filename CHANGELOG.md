@@ -1,4 +1,9 @@
-## [0.9.136](https://github.com/kongnet/sky/compare/0.9.28...0.9.136) (2022-05-02)
+## [0.9.138](https://github.com/kongnet/sky/compare/v0.9.137...v0.9.138) (2022-05-02)
+
+
+
+
+## [0.9.137](https://github.com/kongnet/sky/compare/0.9.28...v0.9.137) (2022-05-02)
 
 
 ### :art:
@@ -38,6 +43,7 @@
 ### :sparkles:
 
 * 产生扫描数据库配置文件功能jt db genjson ([6d21f06](https://github.com/kongnet/sky/commit/6d21f06495535091a52a34e7419948e5695c9306))
+* 加入eth钱包生成 ([6da1f47](https://github.com/kongnet/sky/commit/6da1f47cc6c11b703674aec5b32b796e45d6e708))
 * 扫描变量函数名规则 ([94ab4f3](https://github.com/kongnet/sky/commit/94ab4f30062c3f9b5828a6b88fe9a1b8793b5283))
 * 完善jt init -f skybase框架生成 ([71f1da7](https://github.com/kongnet/sky/commit/71f1da75777c141fabc4860fe1aefb12ae02acdc))
 * 新增jt标准前端扫描工具 ([78b27f8](https://github.com/kongnet/sky/commit/78b27f866e8e2b84d3e8b691826ea6deccf0304e))
