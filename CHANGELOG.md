@@ -1,3 +1,12 @@
+## [0.9.139](https://github.com/kongnet/sky/compare/v0.9.138...v0.9.139) (2022-05-05)
+
+
+### :zap:
+
+* wallet gen 增加sha256摘要 ([2617e39](https://github.com/kongnet/sky/commit/2617e390103691ad869a8fb81246a724f353e912))
+
+
+
 ## [0.9.138](https://github.com/kongnet/sky/compare/v0.9.137...v0.9.138) (2022-05-02)
 
 

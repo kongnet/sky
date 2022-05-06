@@ -158,6 +158,8 @@ commander
   .command('wallet <init|gen>')
   .description(`Create Eth Wallet and Encrypt`)
   .option('-n, --walletnum [v1]', 'How many Wallet want to create', '2')
+  .option('-k, --key <key>', 'easy AES key iv')
+  .option('-i, --iv <iv>', 'easy AES key iv')
 
   .action(function (option, path) {
     //console.log('wallet', path['walletnum'], option)
@@ -165,7 +167,9 @@ commander
       tools.wallet.index.init(path['walletnum'])
     }
     if (option === 'gen') {
-      tools.wallet.index.gen()
+      //console.log(path['key'], path['iv'])
+
+      tools.wallet.index.gen(path['key'], path['iv'])
     }
     //tools.wallet.index.scan(option.all)
   })
