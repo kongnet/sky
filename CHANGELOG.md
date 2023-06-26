@@ -1,3 +1,12 @@
+## [0.9.140](https://github.com/kongnet/sky/compare/v0.9.139...v0.9.140) (2022-05-06)
+
+
+### :sparkles:
+
+* ek再次加密功能 ([664a485](https://github.com/kongnet/sky/commit/664a485316ec2d3b8fd36eaa52313017f24e4343))
+
+
+
 ## [0.9.139](https://github.com/kongnet/sky/compare/v0.9.138...v0.9.139) (2022-05-05)
 
 
