@@ -219,7 +219,6 @@ commander
   })
 commander
   .command('dbscan [option]')
-  .alias('db')
   .description(
     'scan ' + $.c.g('Mysql JiaTui rules') + ' Default: 127.0.0.1/root/123456'
   )
@@ -237,6 +236,8 @@ commander
       tools.dbscan.index.scan()
     }
   })
+  .alias('db')
+
 commander
   .command('gitstat')
   .description('Statistics git author commits and lines')
