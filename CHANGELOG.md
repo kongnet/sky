@@ -1,3 +1,12 @@
+## [0.9.142](https://github.com/kongnet/sky/compare/v0.9.141...v0.9.142) (2025-11-04)
+
+
+### :sparkles:
+
+* 数据库扫描增加是否为空和默认值 ([ca89881](https://github.com/kongnet/sky/commit/ca89881d7d8ec5bae0ddfa8ce2c3e96957a37ea2))
+
+
+
 ## [0.9.141](https://github.com/kongnet/sky/compare/v0.9.140...v0.9.141) (2023-06-26)
 
 
