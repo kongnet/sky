@@ -11,7 +11,7 @@
     "clipboardy": "^2.3.0",
     "commander": "^2.20.3",
     "cz-jt": "^0.1.7",
-    "download-git-repo": "^0.0.2",
+    "download-git-repo": "^3.0.2",
     "eslint": "^9.37.0",
     "eslint-formatter-html-extended": "^1.0.2",
     "eslint-plugin-html": "^6.0.0",
