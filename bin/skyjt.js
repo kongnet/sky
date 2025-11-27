@@ -382,7 +382,7 @@ commander
       await tools.dbreport.index.tableColumnList()
     }
     if (option === 'init') {
-      tools.dbreport.index.initReportFile()
+      await tools.dbreport.index.initReportFile()
     }
   })
 commander.parse(process.argv)
