@@ -64,8 +64,5 @@
       "db"
     ],
     "ignore": []
-  },
-  "overrides": {
-    "buffer-equal-constant-time": "2.0.0"
   }
 }
